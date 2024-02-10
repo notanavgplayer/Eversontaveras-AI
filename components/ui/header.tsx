@@ -49,6 +49,14 @@ export default function Header() {
               </li>
               <li>
                 <Link
+                  href="/blogs"
+                  className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                >
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700   flex items-center transition duration-500 ease-in-out"
                 >
