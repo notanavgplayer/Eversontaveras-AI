@@ -8,7 +8,11 @@ import { MobileToggle } from "../mobile-toggle";
 export default function Header() {
   const { userId } = useAuth();
   return (
-    <header className="absolute top-1 w-full z-30">
+    <header
+      data-aos="fade-down"
+      data-aos-duration="1000"
+      className="absolute top-1 w-full z-30"
+    >
       <div className="w-3/4 bg-indigo-600/10 rounded-full mx-auto  py-2 px-4 sm:px-6">
         <div className="flex items-center justify-between ">
           {/* Site branding */}
@@ -22,7 +26,7 @@ export default function Header() {
           <div className="block lg:hidden">
             <MobileToggle />
           </div>
-          
+
           {/* Desktop navigation */}
           <nav className="hidden lg:flex md:grow">
             {/* Desktop sign in links */}

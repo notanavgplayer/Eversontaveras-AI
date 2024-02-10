@@ -1,7 +1,8 @@
-import { ClerkProvider } from '@clerk/nextjs'
-import './css/style.css'
-import { dark, neobrutalism } from "@clerk/themes";
-import { Inter, Architects_Daughter } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs';
+import { dark, } from "@clerk/themes";
+import "aos/dist/aos.css";
+import { Architects_Daughter, Inter } from 'next/font/google';
+import './css/style.css';
 
 
 const inter = Inter({
