@@ -13,6 +13,7 @@
     "@clerk/themes": "^1.7.9",
     "@headlessui/react": "^1.7.17",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
