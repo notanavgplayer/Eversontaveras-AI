@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/theme.css';
+
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 3px solid #cbd5e0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a0aec0;
+}
