@@ -12,23 +12,17 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-
 import { Menu, MenuIcon } from "lucide-react";
-import logo from '@/public/images/logo.svg'
-import Image from 'next/image'
+import logo from "@/public/images/logo.svg";
+import Image from "next/image";
 import Link from "next/link";
 
-
-
-
-
 export function MobileToggle() {
-
-    const  {userId} = useAuth()
+  const { userId } = useAuth();
   return (
     <Sheet>
-          <SheetTrigger>
-              <Menu className="w-6 h-6 text-gray-200" />
+      <SheetTrigger>
+        <Menu className="w-6 h-6 text-gray-200" />
       </SheetTrigger>
       <SheetContent side="left" className="bg-slate-800 border-0 px-4 py-12">
         <SheetHeader>

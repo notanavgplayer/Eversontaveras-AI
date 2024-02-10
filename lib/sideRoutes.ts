@@ -22,7 +22,7 @@ export const sidebarRoutes = [
   {
     label: "Chat",
     Icon: MessageSquare,
-    path: "/message",
+    path: "/chat",
   },
   {
     label: "Article Summarizer",
@@ -47,6 +47,6 @@ export const sidebarRoutes = [
   {
     label: "Account settings",
     Icon: Settings2,
-    path: "/settings",
+    path: "/account-settings",
   },
 ];
