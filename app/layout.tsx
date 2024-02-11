@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import { Architects_Daughter, Inter } from 'next/font/google';
 import './css/style.css';
 import '@/app/css/additional-styles/special-button.css'
+import '@/app/css/additional-styles/loader.css'
+
 
 
 const inter = Inter({

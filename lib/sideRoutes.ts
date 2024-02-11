@@ -15,15 +15,16 @@ export const sidebarRoutes = [
     path: "/dashboard",
   },
   {
-    label: "Image generator",
-    Icon: ImageIcon,
-    path: "/image",
-  },
-  {
     label: "Chat",
     Icon: MessageSquare,
     path: "/chat",
   },
+  {
+    label: "Image generator",
+    Icon: ImageIcon,
+    path: "/image",
+  },
+
   {
     label: "Article Summarizer",
     Icon: FileText,
