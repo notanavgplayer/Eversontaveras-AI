@@ -3,6 +3,7 @@ import { dark, } from "@clerk/themes";
 import "aos/dist/aos.css";
 import { Architects_Daughter, Inter } from 'next/font/google';
 import './css/style.css';
+import '@/app/css/additional-styles/special-button.css'
 
 
 const inter = Inter({
