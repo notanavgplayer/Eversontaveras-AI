@@ -30,6 +30,7 @@ import { useState } from "react";
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import axios from "axios";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const page = () => {
 
@@ -66,7 +67,7 @@ const page = () => {
       // if (error?.response?.status === 403) {
       //   // proModal.onOpen();
       // } else {
-      // toast.error("Something went wrong");
+      toast.error("Something went wrong");
       // }
     } finally {
       setApiLoading(false);
@@ -206,7 +207,7 @@ const page = () => {
         )}
         {images.length === 0 && !apiLoading && (
           <div>
-            <Empty label="No image" />{" "}
+            <Empty label="No image generated" />{" "}
           </div>
         )}
         <div className="grid grid-cols-1 md:grids-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
