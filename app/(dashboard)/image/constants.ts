@@ -4,7 +4,9 @@ export const formSchema = z.object({
   prompt: z.string().min(1, {
     message: "Image prompt is required.",
   }),
-  nagative_prompt: z.string(),
+  nagative_prompt: z.string().min(1, {
+    message: "Nagative prompt is required.",
+  }),
   amount: z.string().min(1),
   resolution: z.string().min(1),
 });
