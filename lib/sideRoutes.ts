@@ -6,7 +6,7 @@ import {
   LayoutDashboard,
   MessageSquare,
   Settings2,
-  Volume,
+  FileVolume,
 } from "lucide-react";
 export const sidebarRoutes = [
   {
@@ -15,15 +15,16 @@ export const sidebarRoutes = [
     path: "/dashboard",
   },
   {
+    label: "Chat",
+    Icon: MessageSquare,
+    path: "/chat",
+  },
+  {
     label: "Image generator",
     Icon: ImageIcon,
     path: "/image",
   },
-  {
-    label: "Chat",
-    Icon: MessageSquare,
-    path: "/message",
-  },
+
   {
     label: "Article Summarizer",
     Icon: FileText,
@@ -41,12 +42,12 @@ export const sidebarRoutes = [
   },
   {
     label: "Text to Speech",
-    Icon: Volume,
+    Icon: FileVolume,
     path: "/text-to-speech",
   },
   {
     label: "Account settings",
     Icon: Settings2,
-    path: "/settings",
+    path: "/account-settings",
   },
 ];
