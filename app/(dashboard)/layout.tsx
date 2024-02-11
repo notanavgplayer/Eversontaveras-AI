@@ -2,8 +2,13 @@ import Sidebar from "@/components/side-bar";
 import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
+
+  
   return (
-      <main>{children}</main>
+    <div className=" min-h-screen grid grid-cols-12">
+      <Sidebar />
+      <main className="col-span-10">{children}</main>
+    </div>
   );
 };
 

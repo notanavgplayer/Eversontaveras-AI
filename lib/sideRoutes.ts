@@ -6,7 +6,7 @@ import {
   LayoutDashboard,
   MessageSquare,
   Settings2,
-  Volume,
+  FileVolume,
 } from "lucide-react";
 export const sidebarRoutes = [
   {
@@ -41,7 +41,7 @@ export const sidebarRoutes = [
   },
   {
     label: "Text to Speech",
-    Icon: Volume,
+    Icon: FileVolume,
     path: "/text-to-speech",
   },
   {
