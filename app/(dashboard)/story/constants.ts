@@ -1,9 +1,11 @@
 import * as z from "zod";
 
 // Custom validation function for word count
-const wordCount = (value: string): boolean => {
-  const wordCount = value.trim().split(/\s+/).length;
-  return wordCount >= 3 && wordCount <= 2000;
+const wordCount = (value: string) => {
+  const numericValue: number = parseInt(value, 10);
+
+  return numericValue > 3 && numericValue < 2000;
+  
 };
 
 // Custom error message for word count
@@ -42,19 +44,15 @@ export const writingModeOptions = [
 
 export const storyGenreOptions = [
   {
-    value: "science fiction",
-    label: "Science Fiction",
+    value: "256x256",
+    label: "256x256",
   },
   {
-    value: "mystery",
-    label: "Mystery",
+    value: "512x512",
+    label: "512x512",
   },
   {
-    value: "fantasy",
-    label: "Fantasy",
-  },
-  {
-    value: "descriptive",
-    label: "Descriptive",
+    value: "1024x1024",
+    label: "1024x1024",
   },
 ];
