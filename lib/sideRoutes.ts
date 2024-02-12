@@ -20,12 +20,6 @@ export const sidebarRoutes = [
     path: "/chat",
   },
   {
-    label: "Image generator",
-    Icon: ImageIcon,
-    path: "/image",
-  },
-
-  {
     label: "Article Summarizer",
     Icon: FileText,
     path: "/article",
@@ -39,6 +33,11 @@ export const sidebarRoutes = [
     label: "Text Expander",
     Icon: Brain,
     path: "/text-expander",
+  },
+  {
+    label: "Image generator",
+    Icon: ImageIcon,
+    path: "/image",
   },
   {
     label: "Text to Speech",
