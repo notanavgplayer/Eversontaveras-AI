@@ -17,6 +17,13 @@ const Page = () => {
     });
   }, []);
 
+
+  const copyText = () => {
+    navigator.clipboard.writeText(summarizedText);
+  };
+
+
+
   return (
     <div className="bg-[#F5F9FF] min-h-screen">
       <TopBar
@@ -38,7 +45,7 @@ const Page = () => {
         </h1>
 
         <div className="flex flex-col md:flex-row justify-around items-center">
-          <div>
+          <div className="m-4 md:m-0">
             <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
               Input
             </h5>
@@ -59,7 +66,7 @@ const Page = () => {
               </Button>
             </div>
           </div>
-          <div>
+          <div className="m-4 md:m-0">
             <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
               Output
             </h5>
@@ -72,13 +79,16 @@ const Page = () => {
               disabled
             />
             <div className="flex justify-center items-center w-full py-2">
-              <Button variant="primary">
+              <Button
+                disabled={summarizedText.length === 0}
+                onClick={copyText}
+                variant="primary">
                 {loading && (
                   <span>
                     <Loader2 className="h-4 w-4 animate-spin " />
                   </span>
                 )}
-                Copy summarized article
+                Copy to clipboard
               </Button>
             </div>
           </div>
