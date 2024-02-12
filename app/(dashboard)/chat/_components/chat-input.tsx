@@ -1,10 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
-import { Plus, Smile } from "lucide-react";
 import { useRouter } from "next/navigation";
-import qs from "query-string";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -12,16 +9,13 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-interface ChatInputProps {
-
-}
+interface ChatInputProps {}
 
 const formSchema = z.object({
   content: z.string().min(1),
 });
 
 const ChatInput = () => {
-
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -32,7 +26,7 @@ const ChatInput = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+    console.log(values);
     // try {
     //   const url = qs.stringifyUrl({
     //     url: apiUrl,
