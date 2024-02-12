@@ -25,22 +25,25 @@ const Page = () => {
         Icon={FileText}
       />
       <main
-      
-        data-aos='fade-up'
+        data-aos="fade-up"
         data-aos-duration={1000}
-        className="text-gray-900 flex-grow flex flex-col justify-between">
+        className="text-gray-900 flex-grow flex flex-col justify-between"
+      >
         <h1 className="text-2xl w-full text-center font-bold my-8 text-gray-700">
           Summarize Your Material
-        <p className="text-sm mt-1 font-normal tracking-wide">
-          Transform lengthy texts into concise insights with ease. Whether it's
-          an article, report, or  any other document
-        </p>
+          <p className="text-sm mt-1 font-normal tracking-wide">
+            Transform lengthy texts into concise insights with ease. Whether
+            it's an article, report, or any other document
+          </p>
         </h1>
 
         <div className="flex flex-col md:flex-row justify-around items-center">
-          <div className="">
+          <div>
+            <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
+              Input
+            </h5>
             <Textarea
-              className="resize-none boarder border-zinc-200 "
+              className="resize-none boarder border-zinc-300  rounded-[.4rem]"
               placeholder="Paste your article here..."
               cols={80}
               rows={20}
@@ -56,10 +59,14 @@ const Page = () => {
               </Button>
             </div>
           </div>
-          <div className="">
+          <div>
+            <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
+              Output
+            </h5>
+
             <Textarea
-              className="resize-none boarder border-zinc-200 "
-              placeholder="Paste your article here..."
+              className="resize-none boarder border-zinc-300 rounded-[.4rem]"
+              placeholder="Your concise summary will appear here..."
               cols={80}
               rows={20}
               disabled
