@@ -30,7 +30,7 @@ const Sidebar = () => {
     <aside
       data-aos="fade-right"
       data-aos-duration="1000"
-      className="col-span-2 min-h-screen overflow-y-auto  px-2 py-8 bg-gray-900 "
+      className=" xl:col-span-2 xl:inline-block  hidden min-h-screen overflow-y-auto  px-2 py-8 bg-gray-900 "
     >
       <div className="flex relative w-full text-center h-16">
         <Image className="p-2" src={logo} alt="logo" fill />
