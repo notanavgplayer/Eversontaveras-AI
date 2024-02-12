@@ -78,7 +78,7 @@ const Page = () => {
                     <Loader2 className="h-4 w-4 animate-spin " />
                   </span>
                 )}
-                Copy summarized article
+                Copy to clipboard
               </Button>
             </div>
           </div>
