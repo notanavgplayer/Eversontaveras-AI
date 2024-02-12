@@ -7,7 +7,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className=" min-h-screen grid grid-cols-12">
       <Sidebar />
-      <main className="col-span-10">{children}</main>
+      <main className="xl:col-span-10 col-span-12 ">{children}</main>
     </div>
   );
 };
