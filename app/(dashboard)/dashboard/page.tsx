@@ -34,7 +34,7 @@ const tools = [
     path: "/article",
   },
   {
-    name: "AI Story Generator",
+    name: "Story Generator",
     description: "Create captivating stories with AI assistance.",
     icon: StoryGeneratorIcon,
     color: "text-green-800",
