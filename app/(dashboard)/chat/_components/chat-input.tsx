@@ -9,13 +9,22 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-interface ChatInputProps {}
+interface ChatInputProps {
+  message: string,
+  setMessage: Function
+}
 
 const formSchema = z.object({
   content: z.string().min(1),
 });
 
-const ChatInput = () => {
+const ChatInput = (
+  {
+    message,
+    setMessage,
+
+  } : ChatInputProps
+) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -26,17 +35,9 @@ const ChatInput = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    // try {
-    //   const url = qs.stringifyUrl({
-    //     url: apiUrl,
-    //     query,
-    //   });
-    //   await axios.post(url, values);
-    //   form.reset();
-    // } catch (error) {
-    //   console.log(error);
-    // }
+
+    setMessage(values.content);
+    form.reset();
   };
 
   const { isSubmitting } = form.formState;
