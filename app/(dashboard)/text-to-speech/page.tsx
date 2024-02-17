@@ -3,7 +3,6 @@ import Empty from "@/components/empty-page";
 import Loader from "@/components/loader";
 import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
-import { Card, CardFooter } from "@/components/ui/card";
 import {
   Command,
   CommandEmpty,
@@ -33,8 +32,7 @@ import axios from "axios";
 import {
   Check,
   ChevronsUpDown,
-  Download,
-  Image as ImageIcon,
+  Image as ImageIcon
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -49,7 +47,7 @@ const page = () => {
   }, []);
 
   const router = useRouter();
-  const [voices, setVoices] = useState<string[]>([]);
+  const [speeches, setSpeeches] = useState<string[]>([]);
   const [apiLoading, setApiLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -67,11 +65,12 @@ const page = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setApiLoading(true);
-      setVoices([]);
-      const response = await axios.post("/api/voice", values);
+      setSpeeches([]);
+      const response = await axios.post("/api/audio", values);
       setApiLoading(false);
-      setVoices(response.data);
+      setSpeeches(response.data);
       form.reset();
+      console.log(response);
     } catch (error: any) {
       console.log("error", error);
       // if (error?.response?.status === 403) {
@@ -139,7 +138,7 @@ const page = () => {
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full flex justify-around items-center border border-zinc-300   rounded-[.4rem] px-2 py-5",
+                            "w-full flex justify-center items-center border border-zinc-300   rounded-[.4rem] px-2 py-5",
                             !field.value && " text-gray-800"
                           )}
                         >
@@ -148,8 +147,8 @@ const page = () => {
                               (language) => language.voiceCode === field.value
                             )?.languageName
                           ) : (
-                            <span className="text-gray-600">
-                              Select language
+                            <span className="text-gray-800 font-normal">
+                              Select Speacker
                             </span>
                           )}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -263,29 +262,17 @@ const page = () => {
             <Loader />
           </div>
         )}
-        {voices.length === 0 && !apiLoading && (
+        {speeches.length === 0 && !apiLoading && (
           <div>
-            <Empty label="No voice generated" />{" "}
+            <Empty label="No speech generated" />{" "}
           </div>
         )}
         <div className="grid grid-cols-1 md:grids-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-          {voices.map((src) => (
-            <Card key={src} className="rounded-lg overflow-hidden">
-              <div className="relative aspect-square">
-                <audio src={src}></audio>
-              </div>
-              <CardFooter className="p-2">
-                <Button
-                  onClick={() => window.open(src)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  <Download className="h-4 w-4 mr-2" />
-                  Download
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          {speeches.length > 0 && (
+            <audio controls className="w-full mt-8">
+              <source src={speeches[0]} />
+            </audio>
+          )}
         </div>
       </div>
     </div>
