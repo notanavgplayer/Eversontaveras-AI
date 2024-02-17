@@ -138,7 +138,7 @@ const page = () => {
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full flex justify-around items-center border border-zinc-300   rounded-[.4rem] px-2 py-5",
+                            "w-full flex justify-center items-center border border-zinc-300   rounded-[.4rem] px-2 py-5",
                             !field.value && " text-gray-800"
                           )}
                         >
