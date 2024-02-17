@@ -7,10 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import ChatWelcome from "./_components/chat-welcome";
 
 const page = () => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: "/api/chat",
-  });
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
 
+ 
   const [isMounted, setIsMounted] = useState(false);
 
   const messageEndRef = useRef<HTMLInputElement>(null);
@@ -44,7 +43,7 @@ const page = () => {
                 <div key={message.id} className="w-full">
                   {message.role === "user" ? (
                     <div className="flex gap-x-2">
-                      <div className="bg-gray-500 h-12 w-12 rounded-lg">
+                      <div className="bg-gray-500 h-8 w-8 rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -59,13 +58,14 @@ const page = () => {
                         </svg>
                       </div>
 
-                      <p className="rounded-lg p-3 w-full border-orange-500 border-2 text-sm">
-                        {message.content}
-                      </p>
+                      <div className="rounded-lg  w-full  text-sm">
+                        <span className="font-semibold">You</span> <br />
+                        <p className="p-2">{message.content}</p>
+                      </div>
                     </div>
                   ) : (
                     <div className="flex gap-x-2">
-                      <div className="bg-indigo-500 h-12 w-12 rounded-lg">
+                      <div className="bg-indigo-500 h-8 w-8 rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -81,9 +81,10 @@ const page = () => {
                         </svg>
                       </div>
 
-                      <p className="rounded-lg p-3 w-full  text-sm">
-                        {message.content}
-                      </p>
+                      <div className="rounded-lg  w-full  text-sm">
+                        <span className="font-semibold">ChatBlast</span> <br />
+                        <p className="p-2">{message.content}</p>
+                      </div>
                     </div>
                   )}
                 </div>
