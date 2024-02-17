@@ -10,7 +10,7 @@ const loader = () => {
       </div>
 
       <p className='text-gray-600 ml-4 '>
-        This may take a few while. Please wait...
+        This may take a while. Please wait...
       </p>
     </div>
   );
