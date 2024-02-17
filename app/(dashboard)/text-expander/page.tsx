@@ -3,12 +3,15 @@ import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import Aos from "aos";
-import { Brain, FileText, Loader2 } from "lucide-react";
+import axios from "axios";
+import { Brain, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [expandedText, setExpandedText] = useState<string>("");
+  const [inputText, setInputText] = useState<string>("");
 
   useEffect(() => {
     Aos.init({
@@ -16,6 +19,21 @@ const Page = () => {
       once: true,
     });
   }, []);
+
+  const submitHandler = async () => {
+    if (inputText.length === 0) {
+      return toast.error("Please enter some text to expand");
+    }
+    setLoading(true);
+    try {
+      const { data } = await axios.post("/api/text-expander", { inputText });
+      setExpandedText(data.expanded_sentence);
+    } catch (error) {
+      toast.error("An error occurred while expanding text");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-[#F5F9FF] min-h-screen">
@@ -26,10 +44,10 @@ const Page = () => {
         className="text-gray-900 flex-grow flex flex-col justify-between"
       >
         <h1 className="text-2xl w-full text-center font-bold my-8 text-gray-700">
-         Expand your text with ease
+          Expand your text with ease
           <p className="text-sm mt-1 font-normal tracking-wide">
-            
-            Expand your text with ease using our text expander tool. Simply paste your article and get a concise summary in seconds.
+            Expand your text with ease using our text expander tool. Simply
+            paste your article and get a concise summary in seconds.
           </p>
         </h1>
 
@@ -43,15 +61,17 @@ const Page = () => {
               placeholder="Paste your text here..."
               cols={80}
               rows={20}
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
             />
             <div className="flex justify-center items-center w-full py-2">
-              <Button variant="primary">
+              <Button onClick={submitHandler} variant="primary">
+                Expand text
                 {loading && (
-                  <span>
+                  <span className="ml-1">
                     <Loader2 className="h-4 w-4 animate-spin " />
                   </span>
                 )}
-                Expand text
               </Button>
             </div>
           </div>
@@ -65,18 +85,22 @@ const Page = () => {
               placeholder="Your expanded text will appear here..."
               cols={80}
               rows={20}
-              disabled
+              value={expandedText}
+              readOnly
             />
             <div className="flex justify-center items-center w-full py-2">
               <Button
-              
+                onClick={
+                  expandedText.length === 0
+                    ? () => toast.error("Nothing to copy")
+                    : () => {
+                        navigator.clipboard.writeText(expandedText);
+                        toast.success("Copied to clipboard successfully!");
+                      }
+                }
                 disabled={expandedText.length === 0}
-                variant="primary">
-                {loading && (
-                  <span>
-                    <Loader2 className="h-4 w-4 animate-spin " />
-                  </span>
-                )}
+                variant="primary"
+              >
                 Copy to clipboard
               </Button>
             </div>
