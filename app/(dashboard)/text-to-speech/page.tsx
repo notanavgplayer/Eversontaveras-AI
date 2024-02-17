@@ -3,7 +3,6 @@ import Empty from "@/components/empty-page";
 import Loader from "@/components/loader";
 import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
-import { Card, CardFooter } from "@/components/ui/card";
 import {
   Command,
   CommandEmpty,
@@ -33,8 +32,7 @@ import axios from "axios";
 import {
   Check,
   ChevronsUpDown,
-  Download,
-  Image as ImageIcon,
+  Image as ImageIcon
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -72,7 +70,7 @@ const page = () => {
       setApiLoading(false);
       setSpeeches(response.data);
       form.reset();
-      console.log(response)
+      console.log(response);
     } catch (error: any) {
       console.log("error", error);
       // if (error?.response?.status === 403) {
