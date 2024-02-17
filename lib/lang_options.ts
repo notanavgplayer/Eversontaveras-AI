@@ -1,4 +1,4 @@
-const data = [
+export const languageOptions = [
   {
     languageName: "Afrikaans (South Africa) Female",
     languageCode: "af-ZA",
