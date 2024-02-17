@@ -85,7 +85,6 @@ const Page = () => {
               placeholder="Your expanded text will appear here..."
               cols={80}
               rows={20}
-              disabled
               value={expandedText}
               readOnly
             />
@@ -96,7 +95,7 @@ const Page = () => {
                     ? () => toast.error("Nothing to copy")
                     : () => {
                         navigator.clipboard.writeText(expandedText);
-                        toast.success("Text copied to clipboard");
+                        toast.success("Copied to clipboard successfully!");
                       }
                 }
                 disabled={expandedText.length === 0}

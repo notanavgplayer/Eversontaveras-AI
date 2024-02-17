@@ -3,12 +3,15 @@ import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import Aos from "aos";
+import axios from "axios";
 import { FileText, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [summarizedText, setSummarizedText] = useState<string>("");
+  const [inputText, setInputText] = useState<string>("");
 
   useEffect(() => {
     Aos.init({
@@ -17,12 +20,22 @@ const Page = () => {
     });
   }, []);
 
-
-  const copyText = () => {
-    navigator.clipboard.writeText(summarizedText);
+  const submitHandler = async () => {
+    if (inputText.length === 0) {
+      return toast.error("Please enter some text to summarize");
+    }
+    setLoading(true);
+    try {
+      const { data } = await axios.post("/api/article", {
+        inputText,
+      });
+      setSummarizedText(data.summary);
+    } catch (error) {
+      toast.error("An error occurred while summarizing the article");
+    } finally {
+      setLoading(false);
+    }
   };
-
-
 
   return (
     <div className="bg-[#F5F9FF] min-h-screen">
@@ -45,7 +58,7 @@ const Page = () => {
         </h1>
 
         <div className="flex flex-col md:flex-row justify-around items-center">
-          <div className="m-4 md:m-0">
+          <div>
             <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
               Input
             </h5>
@@ -54,19 +67,21 @@ const Page = () => {
               placeholder="Paste your article here..."
               cols={80}
               rows={20}
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
             />
             <div className="flex justify-center items-center w-full py-2">
-              <Button variant="primary">
+              <Button onClick={submitHandler} variant="primary">
+                Summarize my article
                 {loading && (
-                  <span>
+                  <span className="ml-1">
                     <Loader2 className="h-4 w-4 animate-spin " />
                   </span>
                 )}
-                Summarize my article
               </Button>
             </div>
           </div>
-          <div className="m-4 md:m-0">
+          <div>
             <h5 className="text-zinc-600 inline-block mb-1 font-semibold">
               Output
             </h5>
@@ -76,18 +91,22 @@ const Page = () => {
               placeholder="Your concise summary will appear here..."
               cols={80}
               rows={20}
-              disabled
+              value={summarizedText}
+              readOnly
             />
             <div className="flex justify-center items-center w-full py-2">
               <Button
+                onClick={
+                  summarizedText.length === 0
+                    ? () => toast.error("Nothing to copy")
+                    : () => {
+                        navigator.clipboard.writeText(summarizedText);
+                        toast.success("Copied to clipboard successfully!");
+                      }
+                }
                 disabled={summarizedText.length === 0}
-                onClick={copyText}
-                variant="primary">
-                {loading && (
-                  <span>
-                    <Loader2 className="h-4 w-4 animate-spin " />
-                  </span>
-                )}
+                variant="primary"
+              >
                 Copy to clipboard
               </Button>
             </div>
