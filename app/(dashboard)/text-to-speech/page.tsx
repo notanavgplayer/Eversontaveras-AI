@@ -148,7 +148,7 @@ const page = () => {
                               (language) => language.voiceCode === field.value
                             )?.languageName
                           ) : (
-                            <span className="text-gray-600">
+                            <span className="text-gray-800 font-normal">
                               Select language
                             </span>
                           )}
