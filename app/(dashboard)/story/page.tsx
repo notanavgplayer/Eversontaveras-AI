@@ -226,7 +226,7 @@ const page = () => {
                 <Copy className="" />
               </Button>
             </div>
-            <p className="mt-8 max-h-60 overflow-y-auto text-justify p-2">
+            <p className="mt-8 max-h-60 overflow-y-auto text-justify p-2 bg-white">
               {story}
             </p>
           </div>
