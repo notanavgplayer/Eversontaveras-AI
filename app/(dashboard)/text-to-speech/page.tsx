@@ -49,7 +49,7 @@ const page = () => {
   }, []);
 
   const router = useRouter();
-  const [voices, setVoices] = useState<string[]>([]);
+  const [speeches, setSpeeches] = useState<string[]>([]);
   const [apiLoading, setApiLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -67,11 +67,12 @@ const page = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setApiLoading(true);
-      setVoices([]);
-      const response = await axios.post("/api/voice", values);
+      setSpeeches([]);
+      const response = await axios.post("/api/audio", values);
       setApiLoading(false);
-      setVoices(response.data);
+      setSpeeches(response.data);
       form.reset();
+      console.log(response)
     } catch (error: any) {
       console.log("error", error);
       // if (error?.response?.status === 403) {
@@ -149,7 +150,7 @@ const page = () => {
                             )?.languageName
                           ) : (
                             <span className="text-gray-800 font-normal">
-                              Select language
+                              Select Speacker
                             </span>
                           )}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -263,29 +264,17 @@ const page = () => {
             <Loader />
           </div>
         )}
-        {voices.length === 0 && !apiLoading && (
+        {speeches.length === 0 && !apiLoading && (
           <div>
-            <Empty label="No voice generated" />{" "}
+            <Empty label="No speech generated" />{" "}
           </div>
         )}
         <div className="grid grid-cols-1 md:grids-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-          {voices.map((src) => (
-            <Card key={src} className="rounded-lg overflow-hidden">
-              <div className="relative aspect-square">
-                <audio src={src}></audio>
-              </div>
-              <CardFooter className="p-2">
-                <Button
-                  onClick={() => window.open(src)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  <Download className="h-4 w-4 mr-2" />
-                  Download
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          {speeches.length > 0 && (
+            <audio controls className="w-full mt-8">
+              <source src={speeches[0]} />
+            </audio>
+          )}
         </div>
       </div>
     </div>
