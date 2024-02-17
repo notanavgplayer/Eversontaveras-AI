@@ -3,7 +3,7 @@ const SpecialButton = () => {
   return (
     <div id="pulsa" className="pulsa">
       <button id="cta" className="cta">
-        Upgrode Pro<div className="star a"></div>
+        Upgrade Pro<div className="star a"></div>
         <div className="star b"></div>
         <div className="star c"></div>
         <div className="star d"></div>
