@@ -1,14 +1,15 @@
 "use client";
-import Empty from "@/components/empty-page";
 import Loader from "@/components/loader";
 import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
+
+import Empty from "@/components/empty-page";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -18,11 +19,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AOS from "aos";
 import axios from "axios";
-import { Book } from "lucide-react";
+import { Book, Copy } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -36,7 +36,7 @@ const page = () => {
   }, []);
 
   const router = useRouter();
-  const [story, setStory] = useState<string[]>([]);
+  const [story, setStory] = useState<string>("");
   const [apiLoading, setApiLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,25 +51,25 @@ const page = () => {
   const isLoading = form.formState.isLoading;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    // try {
-    //   setApiLoading(true);
-    //   setStory([]);
-    //   const response = await axios.post("/api/story", values);
-    //   setApiLoading(false);
-    //   setStory(response.data);
-    //   form.reset();
-    // } catch (error: any) {
-    //   console.log("error", error);
-    //   // if (error?.response?.status === 403) {
-    //   //   // proModal.onOpen();
-    //   // } else {
-    //   toast.error("Something went wrong");
-    //   // }
-    // } finally {
-    //   setApiLoading(false);
-    //   router.refresh();
-    // }
+    try {
+      setApiLoading(true);
+      setStory("");
+      const response = await axios.post("/api/story", values);
+      setApiLoading(false);
+      console.log(response);
+      setStory(response.data.story);
+      form.reset();
+    } catch (error: any) {
+      console.log("error", error);
+      // if (error?.response?.status === 403) {
+      //   // proModal.onOpen();
+      // } else {
+      toast.error("Something went wrong");
+      // }
+    } finally {
+      setApiLoading(false);
+      router.refresh();
+    }
   };
 
   return (
@@ -210,13 +210,27 @@ const page = () => {
             <Empty label="No story generated" />{" "}
           </div>
         )}
-        <div className="grid grid-cols-1 md:grids-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-          {story.length > 0 && (
-            <Textarea className="border border-zinc-300 rounded-[.4rem] px-2 py-5 outline-none focus-visible:ring-0 focus-visible:ring-transparent">
+        {story && (
+          <div className="relative text-black border-zinc-600 rounded-[.4rem]">
+            <div className="flex justify-between items-center">
+              <h1 className="text-2xl font-semibold">Story</h1>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(story);
+                  toast.success("Copied to clipboard");
+                }}
+                variant={"primary"}
+                className=" m-2 p-2 bg-indigo-600 text-white rounded-full hover:bg-blue-700"
+                title="Copy to clipboard"
+              >
+                <Copy className="" />
+              </Button>
+            </div>
+            <p className="mt-8 max-h-60 overflow-y-auto text-justify p-2">
               {story}
-            </Textarea>
-          )}
-        </div>
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

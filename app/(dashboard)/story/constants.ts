@@ -44,15 +44,19 @@ export const writingModeOptions = [
 
 export const storyGenreOptions = [
   {
-    value: "256x256",
-    label: "256x256",
+    value: "science fiction",
+    label: "Science fiction",
   },
   {
-    value: "512x512",
-    label: "512x512",
+    value: "mystery",
+    label: "Mystery",
   },
   {
-    value: "1024x1024",
-    label: "1024x1024",
+    value: "fantasy",
+    label: "Fantasy",
+  },
+  {
+    value: "descriptive",
+    label: "Descriptive",
   },
 ];
