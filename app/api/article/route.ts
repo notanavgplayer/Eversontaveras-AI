@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
+import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
 
 export async function POST(req: Request) {
   try {
@@ -15,6 +16,13 @@ export async function POST(req: Request) {
     if (!inputText) {
       return new NextResponse("Input text is required", { status: 400 });
     }
+
+ const freeTrial = await checkApiLimit();
+
+ if (!freeTrial) {
+   return new NextResponse("expired trial", { status: 403 });
+ }
+
     const options = {
       method: "POST",
       url: "https://article-extractor-and-summarizer.p.rapidapi.com/summarize-text",
@@ -29,6 +37,9 @@ export async function POST(req: Request) {
       },
     };
     const response = await axios.request(options);
+
+
+await incrementApiLimit()
 
     return NextResponse.json(response.data);
   } catch (error) {

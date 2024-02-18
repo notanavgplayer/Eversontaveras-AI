@@ -8,7 +8,6 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { topic, word_count, writing_mode, story_genre } = body;
 
-    // convert word_count into numbers
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });

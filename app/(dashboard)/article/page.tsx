@@ -8,6 +8,7 @@ import { FileText, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [summarizedText, setSummarizedText] = useState<string>("");
@@ -30,8 +31,16 @@ const Page = () => {
         inputText,
       });
       setSummarizedText(data.summary);
-    } catch (error) {
-      toast.error("An error occurred while summarizing the article");
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        alert(
+          "Your free trial has expired. Please upgrade to a paid plan to continue using Text to Speech."
+        );
+        // proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
+      }
+    
     } finally {
       setLoading(false);
     }
