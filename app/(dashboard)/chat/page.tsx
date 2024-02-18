@@ -7,7 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import ChatWelcome from "./_components/chat-welcome";
 
 const page = () => {
-  const { messages,  input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  
+
 
 
 
@@ -37,7 +39,7 @@ const page = () => {
         Icon={MessageSquareIcon}
       />
       <main className="text-gray-900 flex-grow flex flex-col overflow-auto justify-between">
-        <div className="flex-1 min-h-[68dvh] max-h-screen overflow-y-auto mx-0 my-4">
+        <div className="flex-1 min-h-[68dvh] max-h-screen overflow-y-auto md:px-8 px-4 my-4">
           {messages.length !== 0 ? (
             <div className="w-[90%] flex-1 my-8 mx-auto relative">
               {messages.map((message) => (
