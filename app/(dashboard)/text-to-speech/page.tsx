@@ -148,7 +148,7 @@ const page = () => {
                             )?.languageName
                           ) : (
                             <span className="text-gray-800 font-normal">
-                              Select Speacker
+                              Select Speaker
                             </span>
                           )}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
