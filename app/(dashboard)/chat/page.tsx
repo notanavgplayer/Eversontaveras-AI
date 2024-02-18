@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import ChatWelcome from "./_components/chat-welcome";
 
 const page = () => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit , error } = useChat();
   
 
 
@@ -28,6 +28,17 @@ const page = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+
+  useEffect(
+    () => {
+      if(error?.message === 'expired trial'){
+        alert(`Your free trial has expired. Please upgrade to a paid plan to continue using ChatBlast.`)
+      }
+    },
+    [error]
+  )
+
 
   if (!isMounted) return null;
 

@@ -3,23 +3,22 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model userApiLimit {
-  id        String   @id @default(uuid())
-  userId    String
-  count     Int
+model UserApiLimit {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  count     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model userSubscription {
-  id             String   @id @default(uuid())
-  userId         String
-  subscriptionId String
-  periodEnd      DateTime
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+model UserSubscription {
+  id        String      @id @default(cuid())
+  userId    String      @unique
+  subscriptionID        String?   @unique
+  subscriptionPeriodEnd DateTime? @default(now())
 }
