@@ -72,12 +72,12 @@ const page = () => {
       form.reset();
       console.log(response);
     } catch (error: any) {
-      console.log("error", error);
-      // if (error?.response?.status === 403) {
-      //   // proModal.onOpen();
-      // } else {
+      if (error?.response?.status === 403) {
+        alert('Your free trial has expired. Please upgrade to a paid plan to continue using Text to Speech.')
+        // proModal.onOpen();
+      } else {
       toast.error("Something went wrong");
-      // }
+      }
     } finally {
       setApiLoading(false);
       router.refresh();
