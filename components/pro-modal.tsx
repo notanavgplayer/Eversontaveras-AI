@@ -1,4 +1,4 @@
-"use cleint"
+"use cleint";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -14,17 +14,16 @@ import axios from "axios";
 
 const ProModal = () => {
   const { isOpen, onClose } = useStore();
-  const [isLoading, setIsLoading] = useState(false)
-
+  const [isLoading, setIsLoading] = useState(false);
 
   const proButtonHandler = async () => {
     try {
-      const response = await axios.get('/api/stripe')
-      window.location.href = response.data.url
+      const response = await axios.get("/api/stripe/year");
+      window.location.href = response.data.url;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -40,16 +39,15 @@ const ProModal = () => {
         </DialogHeader>
         <div className="mt-8 flex justify-center">
           <button
-          
             onClick={proButtonHandler}
-            className="bg-indigo-600  focus:border-0   text-white px-6 py-3 rounded-[.4rem] hover:bg-indigo-500">
-            Upgrade to pro 
-
-            {
-              isLoading && <div className="ml-2">
+            className="bg-indigo-600  focus:border-0   text-white px-6 py-3 rounded-[.4rem] hover:bg-indigo-500"
+          >
+            Upgrade to pro
+            {isLoading && (
+              <div className="ml-2">
                 <Loader2 className="h-4 w-4 animate-ping  ml-1" />
               </div>
-            }
+            )}
           </button>
         </div>
       </DialogContent>

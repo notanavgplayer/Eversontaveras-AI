@@ -3,7 +3,7 @@ import { create } from 'zustand'
 type Store = {
     isOpen: boolean,
     onOpen: () => void,
-    onClose : ()=> void
+    onClose: () => void,
 }
 
 export const useStore = create<Store>()((set) => ({

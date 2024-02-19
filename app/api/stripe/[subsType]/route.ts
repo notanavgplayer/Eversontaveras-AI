@@ -7,15 +7,26 @@ import db from "@/lib/db";
 
 const settingsUrl = absoluteURL("/account-settings");
 
-export async function GET() {
+export async function GET(
+  req: Request,
+  {params}: {
+    params: {
+      subsType: 'month' | 'year'
+    };
+  }
+) {
   try {
     const { userId } = auth();
     const user = await currentUser();
 
+    console.log(params)
+
     if (!userId || !user) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-
+    // if (!subscriptionType) {
+    //   return new NextResponse("subscriptionType is required", { status: 400 });
+    // }
     const userSubscription = await db.userSubscription.findUnique({
       where: {
         userId,
@@ -46,9 +57,9 @@ export async function GET() {
               name: "Geniuswriter",
               description: "Access Unlimited AI Generations On Geniuswriter",
             },
-            unit_amount: 2000,
+            unit_amount: 60000,
             recurring: {
-              interval: "month",
+              interval: params.subsType,
             },
           },
           quantity: 1,
