@@ -1,6 +1,6 @@
 .pulsa {
   animation: pulsa 1.4s infinite;
-  min-width: 200px;
+  min-width: 180px;
   width: fit-content;
   border-radius: 9999px;
   /* overflow: hidden; */
