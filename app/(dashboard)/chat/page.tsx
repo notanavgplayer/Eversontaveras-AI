@@ -1,17 +1,19 @@
 "use client";
 import TopBar from "@/components/top-bar";
 import { Input } from "@/components/ui/input";
+import { useStore } from "@/hooks/use-pro-modal";
 import { useChat } from "ai/react";
 import { Bot, MessageSquareIcon, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ChatWelcome from "./_components/chat-welcome";
+import { useRouter } from "next/navigation";
 
 const page = () => {
-  const { messages, input, handleInputChange, handleSubmit , error } = useChat();
-  
+  const { messages, input, handleInputChange, handleSubmit, error } = useChat();
 
+  const { onOpen } = useStore();
 
-
+  const router = useRouter();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -23,22 +25,19 @@ const page = () => {
 
   useEffect(() => {
     scrollToBottom();
+    router.refresh();
+
   }, [messages]);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-
-  useEffect(
-    () => {
-      if(error?.message === 'expired trial'){
-        alert(`Your free trial has expired. Please upgrade to a paid plan to continue using ChatBlast.`)
-      }
-    },
-    [error]
-  )
-
+  useEffect(() => {
+    if (error?.message === "expired trial") {
+      onOpen();
+    }
+  }, [error]);
 
   if (!isMounted) return null;
 
@@ -72,10 +71,10 @@ const page = () => {
                   ) : (
                     <div className="flex flex-col">
                       <div className=" flex justify-start gap-2 items-center rounded-full">
-                        <Bot
-                          className="h-8 w-8 p-2 bg-indigo-600 rounded-full text-white "
-                        />
-                        <span className="font-semibold text-black">ChatBlast</span>
+                        <Bot className="h-8 w-8 p-2 bg-indigo-600 rounded-full text-white " />
+                        <span className="font-semibold text-black">
+                          ChatBlast
+                        </span>
                       </div>
 
                       <p className="rounded-lg  px-10 py-2 w-full  text-sm">

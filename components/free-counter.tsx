@@ -7,11 +7,12 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 import SpecialButton from "./special-button";
+import { maxFreeCount } from "@/lib/freeCount";
 
 interface FreeCounterProps {
   apiLimitCount: number;
 }
-const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
+const FreeCounter = ({ apiLimitCount }: FreeCounterProps) => {
   //   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
 
@@ -26,11 +27,11 @@ const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
   return (
     <div className="bg-white overflow-hidden  flex flex-col gap-3 p-4 text-gray-800 rounded-[.4rem] justify-around items-center">
       <p>
-        {apiLimitCount} / {2} Free Generations
+        {apiLimitCount} / {maxFreeCount} Free Generations
       </p>
       <Progress
-        className="h-3 bg-indigo-500"
-        value={(apiLimitCount / 2) * 100}
+        className="h-3"
+        value={apiLimitCount / maxFreeCount * 100}
       />
       <SpecialButton />
     </div>

@@ -6,6 +6,7 @@ import "./css/style.css";
 import "@/app/css/additional-styles/special-button.css";
 import "@/app/css/additional-styles/loader.css";
 import { Toaster } from "react-hot-toast";
+import ProModalProvider from "@/providers/pro-modal-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
           }}
         >
           <div className="flex flex-col min-h-screen overflow-hidden">
+            <ProModalProvider />
             {children}
             <Toaster
               position="top-center"

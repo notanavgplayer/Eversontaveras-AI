@@ -1,10 +1,24 @@
+
+"use client";
+import { useStore } from '@/hooks/use-pro-modal';
 import React from 'react'
 
 
 const SpecialButton = () => {
+
+  const { onOpen} = useStore()
+
+  const handleClick = () => {
+    onOpen()
+  }
+
+
   return (
     <div id="pulsa" className="pulsa">
-      <button id="cta" className="cta">
+      <button
+      onClick={handleClick}
+      
+        id="cta" className="cta">
         Upgrade Pro<div className="star a"></div>
         <div className="star b"></div>
         <div className="star c"></div>
