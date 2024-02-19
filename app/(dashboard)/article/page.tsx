@@ -2,18 +2,21 @@
 import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useStore } from "@/hooks/use-pro-modal";
 import Aos from "aos";
 import axios from "axios";
 import { FileText, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [summarizedText, setSummarizedText] = useState<string>("");
   const [inputText, setInputText] = useState<string>("");
+  const { onOpen } = useStore();
 
+  const router = useRouter();
   useEffect(() => {
     Aos.init({
       duration: 1000,
@@ -33,16 +36,13 @@ const Page = () => {
       setSummarizedText(data.summary);
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        alert(
-          "Your free trial has expired. Please upgrade to a paid plan to continue using Text to Speech."
-        );
-        // proModal.onOpen();
+        onOpen();
       } else {
         toast.error("Something went wrong");
       }
-    
     } finally {
       setLoading(false);
+      router.refresh();
     }
   };
 
