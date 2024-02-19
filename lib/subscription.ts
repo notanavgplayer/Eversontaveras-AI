@@ -1,8 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import db from "./db";
 
-
-
 const DAY_IN_MS = 86_400_000;
 
 export const checkSubscription = async () => {
@@ -17,8 +15,10 @@ export const checkSubscription = async () => {
       userId: userId,
     },
     select: {
-      subscriptionID: true,
-      subscriptionPeriodEnd: true,
+      stripeSubscriptionId: true,
+      stripeCurrentPeriodEnd: true,
+      stripeCustomerId: true,
+      stripePriceId: true,
     },
   });
 
@@ -27,8 +27,8 @@ export const checkSubscription = async () => {
   }
 
   const isValid =
-    userSubscription.subscriptionID &&
-    new Date(userSubscription.subscriptionPeriodEnd!).getTime()! + DAY_IN_MS >
+    userSubscription.stripePriceId &&
+    userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS >
       Date.now();
 
   return !!isValid;
