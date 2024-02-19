@@ -20,7 +20,7 @@ const SidebarItem = ({ Icon, label, path }: SidebarItemProps) => {
     <Link
       className={cn(
         "flex justify-start items-center  w-full px-4 py-3 text-sm shadow-lg font-semibold  bg-gray-800/50 rounded-md hover:px-5 hover:bg-gray-800/100 transition duration-1000",
-        pathname === path && "border-l-indigo-500 border-l-4 bg-gray-800/100"
+        pathname === path && "border-l-indigo-500 border-l-4 bg-gray-800/100  "
       )}
       href={path}
     >

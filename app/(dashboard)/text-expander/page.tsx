@@ -2,16 +2,20 @@
 import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useStore } from "@/hooks/use-pro-modal";
 import Aos from "aos";
 import axios from "axios";
 import { Brain, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const Page = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [expandedText, setExpandedText] = useState<string>("");
   const [inputText, setInputText] = useState<string>("");
+  const router = useRouter();
+  const { onOpen } = useStore();
 
   useEffect(() => {
     Aos.init({
@@ -28,10 +32,15 @@ const Page = () => {
     try {
       const { data } = await axios.post("/api/text-expander", { inputText });
       setExpandedText(data.expanded_sentence);
-    } catch (error) {
-      toast.error("An error occurred while expanding text");
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        onOpen();
+      } else {
+        toast.error("Something went wrong");
+      }
     } finally {
       setLoading(false);
+      router.refresh();
     }
   };
 

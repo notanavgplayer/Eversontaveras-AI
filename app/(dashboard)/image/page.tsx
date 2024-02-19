@@ -1,19 +1,10 @@
 "use client";
-import TopBar from "@/components/top-bar";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import Empty from "@/components/empty-page";
 import Loader from "@/components/loader";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -22,25 +13,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useStore } from "@/hooks/use-pro-modal";
+import { zodResolver } from "@hookform/resolvers/zod";
 import AOS from "aos";
-import Empty from "@/components/empty-page";
-import { Card, CardFooter } from "@/components/ui/card";
-import { Download, Image as ImageIcon } from "lucide-react";
-import { useState } from "react";
-import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import axios from "axios";
+import { Download, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import * as z from "zod";
+import { amountOptions, formSchema, resolutionOptions } from "./constants";
 
 const page = () => {
-
   useEffect(() => {
     AOS.init();
   }, []);
 
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
-  const [apiLoading , setApiLoading] = useState<boolean>(false);
+  const [apiLoading, setApiLoading] = useState<boolean>(false);
+  const { onOpen } = useStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,10 +59,9 @@ const page = () => {
     } catch (error: any) {
       console.log("error", error);
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
-        alert("Your trial has expired");
+        onOpen();
       } else {
-      toast.error("Something went wrong");
+        toast.error("Something went wrong");
       }
     } finally {
       setApiLoading(false);

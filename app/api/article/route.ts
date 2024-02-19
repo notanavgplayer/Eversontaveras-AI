@@ -1,7 +1,8 @@
+import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
-import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
 
 export async function POST(req: Request) {
   try {
@@ -17,18 +18,19 @@ export async function POST(req: Request) {
       return new NextResponse("Input text is required", { status: 400 });
     }
 
- const freeTrial = await checkApiLimit();
+    const freeTrial = await checkApiLimit();
+    const isSubscribed = await checkSubscription();
 
- if (!freeTrial) {
-   return new NextResponse("expired trial", { status: 403 });
- }
+    if (!freeTrial && !isSubscribed) {
+      return new NextResponse("expired trial", { status: 403 });
+    }
 
     const options = {
       method: "POST",
       url: "https://article-extractor-and-summarizer.p.rapidapi.com/summarize-text",
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "870a7030d7msh014e25f605f2b29p18dbbejsn67d230e5bc71",
+        "X-RapidAPI-Key": process.env.RAPID_API_KEY,
         "X-RapidAPI-Host": "article-extractor-and-summarizer.p.rapidapi.com",
       },
       data: {
@@ -38,12 +40,13 @@ export async function POST(req: Request) {
     };
     const response = await axios.request(options);
 
-
-await incrementApiLimit()
+    if (!isSubscribed) {
+      await incrementApiLimit();
+    }
 
     return NextResponse.json(response.data);
   } catch (error) {
-    console.log("[TEXT_EXPANDER_ERROR", error);
+    console.log("[ARTICLE_SUMMARIZER_ERROR", error);
     return new NextResponse("Internal error", { status: 500 });
   }
 }
