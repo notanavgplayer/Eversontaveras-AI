@@ -1,3 +1,4 @@
+import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
 import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
@@ -28,6 +29,12 @@ export async function POST(req: Request) {
       return new NextResponse("Voice code is required", { status: 400 });
     }
 
+    const freeTrial = await checkApiLimit();
+
+    if (!freeTrial) {
+      return new NextResponse("expired trial", { status: 403 });
+    }
+
     let responseArray = [];
     const encodedParams = new URLSearchParams();
     encodedParams.set("voice_code", voice_code);
@@ -49,6 +56,8 @@ export async function POST(req: Request) {
     const response = await axios.request(options);
 
     responseArray.push(response.data.result.audio_url);
+
+    await incrementApiLimit();
 
     return NextResponse.json(responseArray);
   } catch (error) {

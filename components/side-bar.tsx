@@ -1,25 +1,18 @@
 "use client";
-import SidebarItem from "./sidebar-item";
-import Image from "next/image";
-import logo from "@/public/images/logo.svg";
-import {
-  Book,
-  Brain,
-  FileText,
-  ImageIcon,
-  LayoutDashboard,
-  MessageSquare,
-  Settings2,
-  Volume,
-} from "lucide-react";
-import { useEffect } from "react";
-import AOS from "aos";
 import { sidebarRoutes } from "@/lib/sideRoutes";
+import logo from "@/public/images/logo.svg";
 import { route } from "@/types";
-import UpgradeToProCard from "./update-to-pro-card";
-import SpecialButton from "./special-button";
+import AOS from "aos";
+import Image from "next/image";
+import { useEffect } from "react";
+import SidebarItem from "./sidebar-item";
+import FreeCounter from "./free-counter";
 
-const Sidebar = () => {
+interface SidebarProps {
+  apilimitCount: number;
+}
+
+const Sidebar = ({ apilimitCount = 0 }: SidebarProps) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -30,7 +23,7 @@ const Sidebar = () => {
     <aside
       data-aos="fade-right"
       data-aos-duration="1000"
-      className=" xl:col-span-2 xl:inline-block  hidden min-h-screen overflow-y-auto  px-2 py-8 bg-gray-900 "
+      className=" xl:col-span-2 xl:inline-block max-h-screen hidden overflow-y-auto  px-2 py-8 bg-gray-900 "
     >
       <div className="flex relative w-full text-center h-16">
         <Image className="p-2" src={logo} alt="logo" fill />
@@ -46,7 +39,7 @@ const Sidebar = () => {
         ))}
       </div>
       <div className="flex justify-center items-center mt-8  ">
-        <SpecialButton />
+        <FreeCounter apiLimitCount={apilimitCount} />
       </div>
     </aside>
   );

@@ -1,7 +1,7 @@
-
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
+import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
 
 export async function POST(req: Request) {
   try {
@@ -45,6 +45,11 @@ export async function POST(req: Request) {
       return new NextResponse("Resolution is required", { status: 400 });
     }
 
+    const freeTrial = await checkApiLimit();
+
+    if (!freeTrial) {
+      return new NextResponse("expired trial", { status: 403 });
+    }
 
     const output = await replicate.run(
       "adalab-ai/kandinsky_v2_2:eb68c00d7fc7d7297a04dcecbdd29032361ab8f1d3f6843c32fbd6ec70532319",
@@ -65,6 +70,7 @@ export async function POST(req: Request) {
       }
     );
 
+    await incrementApiLimit();
     return NextResponse.json(output);
   } catch (error) {
     console.log("[IMAGE_ERROR", error);

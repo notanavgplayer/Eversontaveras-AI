@@ -64,11 +64,12 @@ const page = () => {
       form.reset();
     } catch (error: any) {
       console.log("error", error);
-      // if (error?.response?.status === 403) {
-      //   // proModal.onOpen();
-      // } else {
+      if (error?.response?.status === 403) {
+        // proModal.onOpen();
+        alert("Your trial has expired");
+      } else {
       toast.error("Something went wrong");
-      // }
+      }
     } finally {
       setApiLoading(false);
       router.refresh();
