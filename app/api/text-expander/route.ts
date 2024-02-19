@@ -1,3 +1,5 @@
+import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
@@ -16,6 +18,12 @@ export async function POST(req: Request) {
       return new NextResponse("Input text is required", { status: 400 });
     }
 
+    const freeTrial = await checkApiLimit();
+    const isSubscribed = await checkSubscription();
+
+    if (!freeTrial && !isSubscribed) {
+      return new NextResponse("expired trial", { status: 403 });
+    }
     const options = {
       method: "POST",
       url: "https://ai-sentence-expander.p.rapidapi.com/expand-sentence",
@@ -30,6 +38,10 @@ export async function POST(req: Request) {
     };
 
     const response = await axios.request(options);
+
+    if (!isSubscribed) {
+      await incrementApiLimit();
+    }
 
     return NextResponse.json(response.data);
   } catch (error) {

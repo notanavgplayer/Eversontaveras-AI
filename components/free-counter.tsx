@@ -25,8 +25,8 @@ const FreeCounter = ({ apiLimitCount }: FreeCounterProps) => {
   }
 
   return (
-    <div className="bg-white overflow-hidden  flex flex-col gap-3 p-4 text-gray-800 rounded-[.4rem] justify-around items-center">
-      <p>
+    <div className="bg-white overflow-hidden  flex flex-col gap-4 p-4 lg:p-6 text-gray-800 rounded-[.4rem] justify-around items-center">
+      <p className="text-sm lg:text-base lg:font-semibold">
         {apiLimitCount} / {maxFreeCount} Free Generations
       </p>
       <Progress

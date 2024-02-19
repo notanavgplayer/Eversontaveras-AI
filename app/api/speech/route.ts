@@ -1,4 +1,5 @@
 import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
@@ -30,8 +31,9 @@ export async function POST(req: Request) {
     }
 
     const freeTrial = await checkApiLimit();
+    const isSubscribed = await checkSubscription();
 
-    if (!freeTrial) {
+    if (!freeTrial && !isSubscribed) {
       return new NextResponse("expired trial", { status: 403 });
     }
 
@@ -57,11 +59,13 @@ export async function POST(req: Request) {
 
     responseArray.push(response.data.result.audio_url);
 
-    await incrementApiLimit();
+    if (!isSubscribed) {
+      await incrementApiLimit();
+    }
 
     return NextResponse.json(responseArray);
   } catch (error) {
-    console.log("[AUDIO_ERROR", error);
+    console.log("SPEECH_ERROR", error);
     return new NextResponse("Internal error", { status: 500 });
   }
 }

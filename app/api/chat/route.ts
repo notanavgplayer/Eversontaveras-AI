@@ -1,7 +1,7 @@
-import OpenAI from "openai";
-import { OpenAIStream, StreamingTextResponse, DataMessage } from "ai";
-import { NextResponse } from "next/server";
 import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -11,8 +11,9 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const freeTrial = await checkApiLimit();
+  const isSubscribed = await checkSubscription();
 
-  if (!freeTrial) {
+  if (!freeTrial && !isSubscribed) {
     return new NextResponse("expired trial", { status: 403 });
   }
 
@@ -21,7 +22,9 @@ export async function POST(req: Request) {
     messages,
   });
 
-  await incrementApiLimit();
+  if (!isSubscribed) {
+    await incrementApiLimit();
+  }
 
   return new NextResponse(response.choices[0].message.content);
 }

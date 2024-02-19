@@ -24,16 +24,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useStore } from "@/hooks/use-pro-modal";
 import { languageOptions } from "@/lib/lang_options";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AOS from "aos";
 import axios from "axios";
-import {
-  Check,
-  ChevronsUpDown,
-  Image as ImageIcon
-} from "lucide-react";
+import { Check, ChevronsUpDown, Image as ImageIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -49,6 +46,7 @@ const page = () => {
   const router = useRouter();
   const [speeches, setSpeeches] = useState<string[]>([]);
   const [apiLoading, setApiLoading] = useState<boolean>(false);
+  const { onOpen } = useStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,17 +64,16 @@ const page = () => {
     try {
       setApiLoading(true);
       setSpeeches([]);
-      const response = await axios.post("/api/audio", values);
+      const response = await axios.post("/api/speech", values);
       setApiLoading(false);
       setSpeeches(response.data);
       form.reset();
       console.log(response);
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        alert('Your free trial has expired. Please upgrade to a paid plan to continue using Text to Speech.')
-        // proModal.onOpen();
+        onOpen();
       } else {
-      toast.error("Something went wrong");
+        toast.error("Something went wrong");
       }
     } finally {
       setApiLoading(false);

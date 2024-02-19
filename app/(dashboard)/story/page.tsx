@@ -4,13 +4,7 @@ import TopBar from "@/components/top-bar";
 import { Button } from "@/components/ui/button";
 
 import Empty from "@/components/empty-page";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -19,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useStore } from "@/hooks/use-pro-modal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AOS from "aos";
 import axios from "axios";
@@ -38,6 +33,7 @@ const page = () => {
   const router = useRouter();
   const [story, setStory] = useState<string>("");
   const [apiLoading, setApiLoading] = useState<boolean>(false);
+  const { onOpen } = useStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,12 +56,11 @@ const page = () => {
       setStory(response.data.story);
       form.reset();
     } catch (error: any) {
-      console.log("error", error);
-      // if (error?.response?.status === 403) {
-      //   // proModal.onOpen();
-      // } else {
-      toast.error("Something went wrong");
-      // }
+      if (error?.response?.status === 403) {
+        onOpen();
+      } else {
+        toast.error("Something went wrong");
+      }
     } finally {
       setApiLoading(false);
       router.refresh();
@@ -109,7 +104,6 @@ const page = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -128,7 +122,6 @@ const page = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -154,7 +147,6 @@ const page = () => {
                           {option.label}
                         </SelectItem>
                       ))}
-                      <FormMessage />
                     </SelectContent>
                   </Select>
                 </FormItem>
@@ -182,7 +174,6 @@ const page = () => {
                           {option.label}
                         </SelectItem>
                       ))}
-                      <FormMessage />
                     </SelectContent>
                   </Select>
                 </FormItem>

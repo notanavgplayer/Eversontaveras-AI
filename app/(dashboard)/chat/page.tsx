@@ -86,7 +86,7 @@ const page = () => {
               ))}
             </div>
           ) : (
-            <div className="flex-1 min-h-[64dvh] mx-28 my-8 text-center">
+            <div className="flex-1 min-h-[64dvh] md:mx-28 mx-4 my-8 text-center">
               <ChatWelcome />
             </div>
           )}

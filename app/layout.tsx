@@ -45,10 +45,7 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen overflow-hidden">
             <ProModalProvider />
             {children}
-            <Toaster
-              position="top-center"
-              gutter={8}
-            />
+            <Toaster position="top-center" gutter={8} />
           </div>
         </ClerkProvider>
       </body>

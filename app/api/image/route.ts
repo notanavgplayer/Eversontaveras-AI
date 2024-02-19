@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
 import { checkApiLimit, incrementApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 export async function POST(req: Request) {
   try {
@@ -46,8 +47,9 @@ export async function POST(req: Request) {
     }
 
     const freeTrial = await checkApiLimit();
+    const isSubscribed = await checkSubscription();
 
-    if (!freeTrial) {
+    if (!freeTrial && !isSubscribed) {
       return new NextResponse("expired trial", { status: 403 });
     }
 
@@ -70,7 +72,9 @@ export async function POST(req: Request) {
       }
     );
 
-    await incrementApiLimit();
+    if (!isSubscribed) {
+      await incrementApiLimit();
+    }
     return NextResponse.json(output);
   } catch (error) {
     console.log("[IMAGE_ERROR", error);

@@ -57,7 +57,7 @@ export async function GET(
               name: "Geniuswriter",
               description: "Access Unlimited AI Generations On Geniuswriter",
             },
-            unit_amount: 60000,
+            unit_amount: params.subsType === 'month' ? 1000 : 10000,
             recurring: {
               interval: params.subsType,
             },
