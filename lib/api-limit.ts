@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs";
 
 import db from "@/lib/db";
+import { maxFreeCount } from "./freeCount";
 
 export const incrementApiLimit = async () => {
   const { userId } = auth();
@@ -40,7 +41,7 @@ export const checkApiLimit = async () => {
 
   if (
     !userApiLimit ||
-    userApiLimit.count < Number(process.env.MAX_FREE_API_REQUESTS)
+    userApiLimit.count < Number(maxFreeCount)
   ) {
     return true;
   } else {

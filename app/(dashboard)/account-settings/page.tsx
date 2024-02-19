@@ -1,15 +1,19 @@
-import TopBar from '@/components/top-bar';
-import { Settings2 } from 'lucide-react';
+import TopBar from "@/components/top-bar";
+import { Settings2 } from "lucide-react";
 
 const page = () => {
   return (
     <div className="bg-[#F5F9FF] min-h-screen">
-      <TopBar iconColor="rose" label="Account settings" Icon={Settings2} />
+      <TopBar
+        iconColor="text-rose-800"
+        label="Account settings"
+        Icon={Settings2}
+      />
       <main className="text-gray-900">
-        <h1>Image generation</h1>
+        Account settings
       </main>
     </div>
   );
-}
+};
 
-export default page
+export default page;
