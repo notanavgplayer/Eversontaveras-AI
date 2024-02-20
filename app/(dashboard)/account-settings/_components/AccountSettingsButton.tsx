@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/hooks/use-pro-modal";
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -54,6 +55,12 @@ const AccountSettingsButton = (props: AccountSettingsButtonProps) => {
       className="mt-4"
     >
       {props.label}
+
+      {isLoading && (
+        <div className="ml-2 spinner-border spinner-border-sm" role="status">
+          <Loader2 className="w-4 h-4 animate-spin" />
+        </div>
+      )}
     </Button>
   );
 };
