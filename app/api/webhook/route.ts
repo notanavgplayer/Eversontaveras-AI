@@ -2,7 +2,6 @@ import Stripe from "stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
-
 import { stripe } from "@/lib/stripe";
 import db from "@/lib/db";
 
@@ -51,6 +50,16 @@ export async function POST(req: Request) {
       session.subscription as string
     );
 
+    const isUserExist = await db.userSubscription.findUnique({
+      where: {
+        stripeSubscriptionId: subscription.id,
+      },
+    });
+
+    if (!isUserExist) {
+      return null;
+    }
+
     await db.userSubscription.update({
       where: {
         stripeSubscriptionId: subscription.id,
@@ -63,7 +72,6 @@ export async function POST(req: Request) {
       },
     });
   }
-
 
   return new NextResponse(null, { status: 200 });
 }
