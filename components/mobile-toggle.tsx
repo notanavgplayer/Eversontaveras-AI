@@ -24,7 +24,7 @@ export function MobileToggle() {
       <SheetTrigger>
         <Menu className="w-6 h-6 text-gray-200" />
       </SheetTrigger>
-      <SheetContent side="left" className="bg-slate-800 border-0 px-4 py-12">
+      <SheetContent side="left"  className="bg-slate-800 border-0 px-4 py-12">
         <SheetHeader>
           <SheetTitle>
             <Image src={logo} alt="logo" width={160} height={40} />
@@ -59,7 +59,9 @@ export function MobileToggle() {
                 </li>
 
                 {userId ? (
-                  <UserButton afterSignOutUrl="/" />
+                  <div className="ml-5 mt-2">
+                    <UserButton afterSignOutUrl="/" />
+                  </div>
                 ) : (
                   <>
                     <li>
