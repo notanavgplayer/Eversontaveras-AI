@@ -7,17 +7,26 @@ import Image from "next/image";
 import { useEffect } from "react";
 import SidebarItem from "./sidebar-item";
 import FreeCounter from "./free-counter";
+import { useStore } from "@/hooks/use-pro-modal";
+import { useRouter } from "next/navigation";
 
 interface SidebarProps {
   apilimitCount: number;
+  isSubscribed: boolean;
 }
 
-const Sidebar = ({ apilimitCount = 0 }: SidebarProps) => {
+const Sidebar = ({ apilimitCount = 0, isSubscribed = false }: SidebarProps) => {
+  const { subscriptionType } = useStore();
+  const router = useRouter();
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   }, []);
+
+  useEffect(() => {
+    router.refresh();
+  }, [subscriptionType]);
 
   return (
     <aside
@@ -39,7 +48,7 @@ const Sidebar = ({ apilimitCount = 0 }: SidebarProps) => {
         ))}
       </div>
       <div className="flex justify-center items-center mt-8  ">
-        <FreeCounter apiLimitCount={apilimitCount} />
+        {!isSubscribed && <FreeCounter apiLimitCount={apilimitCount} />}
       </div>
     </aside>
   );
