@@ -31,14 +31,6 @@ export default function Header() {
           <nav className="hidden lg:flex md:grow">
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap gap-1 tracking-wide items-center">
-              <li className="relative">
-                <Link
-                  href="/about"
-                  className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700    flex items-center transition duration-500 ease-in-out"
-                >
-                  About
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/pricing"
