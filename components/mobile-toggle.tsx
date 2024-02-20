@@ -33,14 +33,15 @@ export function MobileToggle() {
             <nav className="flex flex-col gap-4 mt-8">
               {/* Desktop sign in links */}
               <ul className="flex grow flex-col items-start">
-                <li className="relative">
+                <li>
                   <Link
-                    href="/about"
-                    className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700    flex items-center transition duration-500 ease-in-out"
+                    href="/"
+                    className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
                   >
-                    About
+                    Home
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     href="/pricing"
@@ -57,9 +58,19 @@ export function MobileToggle() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/dashboard"
+                    className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
 
                 {userId ? (
-                  <UserButton afterSignOutUrl="/" />
+                  <div className="ml-5 mt-2">
+                    <UserButton afterSignOutUrl="/" />
+                  </div>
                 ) : (
                   <>
                     <li>

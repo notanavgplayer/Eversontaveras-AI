@@ -1,8 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [ "replicate.delivery"],
+    remotePatterns: [
+      {
+        hostname: "replicate.delivery",
+        protocol: "https",
+      },
+      {
+        hostname: "picsum.photos",
+        protocol: "https",
+      },
+    ],
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

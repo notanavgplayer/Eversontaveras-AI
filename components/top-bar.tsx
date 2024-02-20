@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 import { UserButton } from "@clerk/nextjs";
-import { LucideIcon, Shield } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import SidebarMobile from "./side-bar-mobile";
-import { checkSubscription } from "@/lib/subscription";
-import { Badge } from "@/components/ui/badge";
 
 interface TopBarProps {
   label: string;

@@ -9,6 +9,7 @@ import SidebarItem from "./sidebar-item";
 import FreeCounter from "./free-counter";
 import { useStore } from "@/hooks/use-pro-modal";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface SidebarProps {
   apilimitCount: number;
@@ -35,7 +36,9 @@ const Sidebar = ({ apilimitCount = 0, isSubscribed = false }: SidebarProps) => {
       className=" xl:col-span-2 xl:inline-block max-h-screen hidden overflow-y-auto  px-2 py-8 bg-gray-900 "
     >
       <div className="flex relative w-full text-center h-16">
-        <Image className="p-2" src={logo} alt="logo" fill />
+        <Link href="/">
+          <Image className="p-2" src={logo} alt="logo" fill />
+        </Link>
       </div>
       <div className="flex flex-col mt-8 gap-2">
         {sidebarRoutes.map((route: route, index: number) => (

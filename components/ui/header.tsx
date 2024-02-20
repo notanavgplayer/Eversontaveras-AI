@@ -13,7 +13,7 @@ export default function Header() {
       data-aos-duration="1000"
       className="absolute top-1 w-full z-30"
     >
-      <div className="w-3/4 bg-indigo-600/10 rounded-full mx-auto  py-2 px-4 sm:px-6">
+      <div className="w-[95%] lg:w-3/4 bg-indigo-600/10 rounded-full mx-auto  py-2 px-4 sm:px-6">
         <div className="flex items-center justify-between ">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
@@ -31,14 +31,6 @@ export default function Header() {
           <nav className="hidden lg:flex md:grow">
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap gap-1 tracking-wide items-center">
-              <li className="relative">
-                <Link
-                  href="/about"
-                  className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700    flex items-center transition duration-500 ease-in-out"
-                >
-                  About
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/pricing"

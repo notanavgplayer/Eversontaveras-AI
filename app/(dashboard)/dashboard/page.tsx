@@ -2,21 +2,20 @@
 import TopBar from "@/components/top-bar";
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
 import AOS from "aos";
 
 import {
-  MessageSquare as ChatIcon,
   Clipboard as ArticleSummarizerIcon,
+  MessageSquare as ChatIcon,
+  Image as ImageGenerationIcon,
+  LayoutDashboard,
   BookOpen as StoryGeneratorIcon,
   FileText as TextExpanderIcon,
   Mic as TextToSpeechIcon,
-  Image as ImageGenerationIcon,
-  LayoutDashboard,
 } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 const tools = [
   {
     name: "Chat",
@@ -59,20 +58,20 @@ const tools = [
     description: "Generate images with AI assistance.",
     icon: ImageGenerationIcon,
     color: "text-violet-800",
-    path : "/image"
+    path: "/image",
   },
 ];
 
 const Dashboard = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
+      duration: 1000,
       once: true,
     });
   }, []);
 
   const user = useUser();
-  const router = useRouter()
+  const router = useRouter();
 
   if (!user) {
     return redirect("/signin");
@@ -111,12 +110,12 @@ const Dashboard = () => {
                   {tool.description}
                 </p>
               </div>
-              <button onClick={
-                () => {
-                  router.push(tool.path)
-                }
-              
-              } className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition duration-300">
+              <button
+                onClick={() => {
+                  router.push(tool.path);
+                }}
+                className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-[.2rem] hover:bg-indigo-600 transition duration-300"
+              >
                 Use {tool.name}
               </button>
             </div>
