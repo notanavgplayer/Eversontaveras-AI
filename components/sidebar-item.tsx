@@ -27,7 +27,7 @@ const SidebarItem = ({ Icon, label, path }: SidebarItemProps) => {
       <Icon
         className={cn(
           "inline-block w-5 h-5 mr-1",
-          pathname === path && "text-indigo-400"
+          pathname === path && "text-indigo-400 mr-2 scale-125"
         )}
       />
       {label}
