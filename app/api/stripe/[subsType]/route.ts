@@ -9,9 +9,11 @@ const settingsUrl = absoluteURL("/account-settings");
 
 export async function GET(
   req: Request,
-  {params}: {
+  {
+    params,
+  }: {
     params: {
-      subsType: 'month' | 'year'
+      subsType: "month" | "year";
     };
   }
 ) {
@@ -19,14 +21,10 @@ export async function GET(
     const { userId } = auth();
     const user = await currentUser();
 
-    console.log(params)
-
     if (!userId || !user) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    // if (!subscriptionType) {
-    //   return new NextResponse("subscriptionType is required", { status: 400 });
-    // }
+
     const userSubscription = await db.userSubscription.findUnique({
       where: {
         userId,
@@ -57,7 +55,7 @@ export async function GET(
               name: "Geniuswriter",
               description: "Access Unlimited AI Generations On Geniuswriter",
             },
-            unit_amount: params.subsType === 'month' ? 1000 : 10000,
+            unit_amount: params.subsType === "month" ? 1000 : 10000,
             recurring: {
               interval: params.subsType,
             },
