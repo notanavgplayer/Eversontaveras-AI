@@ -19,6 +19,7 @@ import Link from "next/link";
 
 export function MobileToggle() {
   const { userId } = useAuth();
+  
   return (
     <Sheet>
       <SheetTrigger>
@@ -32,7 +33,7 @@ export function MobileToggle() {
           <SheetDescription>
             <nav className="flex flex-col gap-4 mt-8">
               {/* Desktop sign in links */}
-              <ul className="flex grow flex-col items-start">
+              <ul className="flex grow flex-col gap-2 items-start">
                 <li>
                   <Link
                     href="/"
@@ -58,17 +59,17 @@ export function MobileToggle() {
                     Contact
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/dashboard"
-                    className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
 
                 {userId ? (
                   <div className="ml-5 mt-2">
+                    <li>
+                      <Link
+                        href="/dashboard"
+                        className="btn-sm rounded-full text-gray-200 hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                      >
+                        Dashboard
+                      </Link>
+                    </li>
                     <UserButton afterSignOutUrl="/" />
                   </div>
                 ) : (
@@ -84,7 +85,7 @@ export function MobileToggle() {
                     <li>
                       <Link
                         href="/signup"
-                        className="btn-sm rounded-full  text-white bg-indigo-700 hover:bg-indigo-800"
+                        className="btn-sm rounded-full  text-white  hover:text-white hover:bg-gray-700  "
                       >
                         Sign up
                       </Link>

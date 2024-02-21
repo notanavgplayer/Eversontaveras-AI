@@ -1,1 +1,1 @@
-export const maxFreeCount= 2
+export const maxFreeCount= 10

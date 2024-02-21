@@ -50,7 +50,7 @@ const ProModal = () => {
                   className="w-full"
                   value="month"
                 >
-                  Monthly $10
+                  Monthly $30
                 </TabsTrigger>
 
                 <TabsTrigger
@@ -60,10 +60,10 @@ const ProModal = () => {
                   className="w-full relative"
                   value="year"
                 >
-                  Yearly $100
+                  Yearly $300
                   <span className="absolute top-[-16px] right-[-6px] bg-indigo-700 shadow-2xl rounded-full p-2 text-white rotate-[-16deg] ">
                     {" "}
-                    -16%{" "}
+                    -15%{" "}
                   </span>
                 </TabsTrigger>
               </TabsList>
