@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import logo from "@/public/images/logo.svg";
+import logo from "@/public/images/logo.png";
 import Image from 'next/image';
 
 
 export default function Footer() {
   return (
     <footer>
-      <div className="py-12 md:py-16">
+      <div className="py-12 md:py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Top area: Blocks */}
           <div className="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
@@ -21,7 +21,7 @@ export default function Footer() {
                   className="flex justify-start mb-4 items-center transition duration-150 ease-in-out"
                   aria-label="Logo"
                 >
-                  <Image src={logo} alt="logo" width={120} height={40} />
+                  <Image src={logo} alt="logo" width={250} height={40} />
                 </Link>
               </div>
               <div className="text-gray-400">
@@ -39,7 +39,7 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/chat"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Chat Conversations
@@ -47,7 +47,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/article"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Article Summarizer
@@ -55,7 +55,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/image"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Image Generation
@@ -63,7 +63,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/text-to-speech"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Text to Speech
@@ -71,7 +71,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/text-expander"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Text Expander
@@ -84,23 +84,32 @@ export default function Footer() {
               <div className="text-sm">
                 <h6 className="text-gray-200 font-medium mb-1">Company</h6>
                 <ul>
-                  <li className="mb-1">
+                  {/* <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/about"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       About us
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/pricing"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Pricing
                     </Link>
                   </li>
+                  <li className="mb-1">
+                    <Link
+                      href="/blogs"
+                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Blogs
+                    </Link>
+                  </li>
+
                 </ul>
               </div>
 
@@ -110,7 +119,7 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/contact"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Contact us
@@ -121,17 +130,24 @@ export default function Footer() {
                       href="/"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
-                      lorem ipsume
+                      Email: info@geniuswriter.ai
                     </Link>
                   </li>
+                  <li>
+                  <Link
+                      href="/"
+                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Phone: +123-456-789
+                    </Link>
+                    </li>
                 </ul>
               </div>
             </div>
           </div>
 
           {/* Bottom area */}
-          <div className="md:flex md:items-center md:justify-between">
-            {/* Social links */}
+          {/* <div className="md:flex md:items-center md:justify-between">
             <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
               <li className="ml-4">
                 <Link
@@ -195,15 +211,13 @@ export default function Footer() {
                   </svg>
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
-            {/* Copyrights note */}
-            <div className="text-gray-400 text-sm mr-4">
-              &copy; mernist.me. All rights reserved.
+            <div className="text-gray-400 text-sm mr-4 text-center">
+              &copy; GeniusWriter - All rights reserved.
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }

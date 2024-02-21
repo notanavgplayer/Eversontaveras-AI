@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/images/logo.svg";
+import logo from "@/public/images/logo.png";
 import { UserButton, useAuth } from "@clerk/nextjs";
 import { MobileToggle } from "../mobile-toggle";
 
@@ -19,7 +19,7 @@ export default function Header() {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link href="/" className="block" aria-label="logo">
-              <Image src={logo} alt="logo" width={120} height={40} />
+              <Image src={logo} alt="logo" width={230} height={40} />
             </Link>
           </div>
 

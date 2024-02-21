@@ -5,10 +5,6 @@ import { blogPosts } from "@/lib/blogs";
 
 function page() {
 
-
-  
-
-
   return (
     <main>
       <Header />

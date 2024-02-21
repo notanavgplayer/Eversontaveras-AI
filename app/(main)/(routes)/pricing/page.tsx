@@ -6,11 +6,11 @@ export default function PricingPlans() {
     <div>
       <Header />
       <div data-aos="fade-up"
-        data-aos-duration="1000" className='grid lg:grid-cols-3 gap-12 lg:gap-8 py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6'>
+        data-aos-duration="1000" className='grid lg:grid-cols-2 gap-12 lg:gap-8 py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6'>
         {pricingPlans.map(plan => (
           <div key={plan.title} className='border border-slate-200 p-8 shadow-lg  bg-white rounded-2xl relative flex flex-col'
           >
-            <h3 className='text-lg font-semibold leading-5 text-black'>{plan.title}</h3>
+            <h3 className='text-xl font-bold leading-5 text-black'>{plan.title}</h3>
             {plan.mostPopular && (
               <p className='absolute top-0 -translate-y-1/2 bg-indigo-500 text-white px-3 py-0.5 text-sm font-semibold tracking-wide rounded-full shadow-md'>Most Popular</p>
             )}

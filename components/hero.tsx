@@ -48,18 +48,15 @@ export default function Hero() {
           {/* Section header */}
 
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h1 mb-4" data-aos="fade-up">
-              AI-Powered Creative Solutions
+            <h1 className="h1 mb-4 font-extrabold tracking-tighter" data-aos="fade-up">
+            The Most Powerful AI Tools Online
             </h1>
             <p
-              className="text-xl text-gray-400 mb-8"
+              className="text-lg text-gray-400 mb-8"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Elevate your content creation process with our suite of AI-powered
-              tools. From generating engaging chat conversations to crafting
-              captivating stories, we provide everything you need to fuel your
-              creativity and drive engagement.
+              Welcome to GeniusWriter AI, where innovation meets efficiency! We offer a suite of cutting-edge artificial intelligence tools designed to empower and simplify your work. Whether you're a creative professional, a busy entrepreneur, or simply someone looking to streamline daily tasks, our AI solutions are here to transform your workflow.
             </p>
             <HeroButtons/>
           </div>

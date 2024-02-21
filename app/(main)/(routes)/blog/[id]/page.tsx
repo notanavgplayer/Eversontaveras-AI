@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useEffect, useState } from "react";
 import { blogPosts } from "@/lib/blogs";
 import { redirect } from "next/navigation";
