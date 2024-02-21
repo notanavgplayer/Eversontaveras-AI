@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     });
 
     if (!isUserExist) {
-      return null;
+        return new NextResponse(null, { status: 200 });
     }
 
     await db.userSubscription.update({
