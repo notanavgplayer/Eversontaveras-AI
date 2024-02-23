@@ -1,19 +1,10 @@
-"use client";
 import Header from "@/components/ui/header";
-import { useStore } from "@/hooks/use-pro-modal";
-import { pricingPlans } from "@/lib/pricing-plans";
-import { useAuth } from "@clerk/nextjs";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { checkSubscription } from "@/lib/subscription";
+import PricingButtonForFree from "./_components/buttonFree";
+import ButtonPro from "./_components/buttonPro";
 
-interface Plan {
-  isSubscribed: boolean;
-}
-
-export default function PricingPlans({ isSubscribed }: Plan) {
-  const { userId } = useAuth();
-  const { onOpen } = useStore();
-  const router = useRouter();
+const PricingPlans = async () => {
+  const isSubscribed = await checkSubscription();
   return (
     <div>
       <Header />
@@ -84,14 +75,7 @@ export default function PricingPlans({ isSubscribed }: Plan) {
                 <span className="ml-3">7 Days Support Response</span>
               </li>
             </ul>
-            <button
-              onClick={userId ? () => null : () => router.push("/signin")}
-              className="text-white bg-indigo-500 w-full hover:bg-indigo-600 mt-8 block text-sm font-semibold leading-4 text-center rounded-lg shadow-md px-6 py-4"
-            >
-              {!userId && "Start your Free Trial"}{" "}
-              {!isSubscribed && userId && "Currently on free trial"}{" "}
-              {isSubscribed && "Not eligible"}
-            </button>
+            <PricingButtonForFree isSubscribed={isSubscribed} />
           </div>
         </div>
 
@@ -159,16 +143,12 @@ export default function PricingPlans({ isSubscribed }: Plan) {
                 <span className="ml-3">Priority Support</span>
               </li>
             </ul>
-            <button
-              disabled={isSubscribed}
-              onClick={userId ? () => onOpen() : () => router.push("/signin")}
-              className="text-white bg-indigo-500 w-full hover:bg-indigo-600 mt-8 block text-sm font-semibold leading-4 text-center rounded-lg shadow-md px-6 py-4"
-            >
-              {isSubscribed ? "Currently on pro" : " Upgrade to pro"}
-            </button>
+            <ButtonPro isSubscribed={isSubscribed} />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default PricingPlans;
