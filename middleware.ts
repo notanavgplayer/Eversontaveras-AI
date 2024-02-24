@@ -12,6 +12,7 @@ export default authMiddleware({
     "/contact",
     "/blogs",
     "/blog/:id",
+    '/api/chat'
   ],
 });
 
