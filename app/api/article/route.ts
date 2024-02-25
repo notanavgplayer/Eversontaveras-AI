@@ -10,6 +10,8 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { inputText } = body;
 
+console.log( "Rapid api key" , process.env.RAPID_API_KEY)
+    console.log("user id from next Auth" ,  userId)
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
@@ -38,6 +40,9 @@ export async function POST(req: Request) {
         text: inputText,
       },
     };
+
+
+
     const response = await axios.request(options);
 
     if (!isSubscribed) {
