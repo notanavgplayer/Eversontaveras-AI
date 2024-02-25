@@ -61,7 +61,7 @@ export function MobileToggle() {
                 </li>
 
                 {userId ? (
-                  <div className="ml-5 mt-2">
+                  <div className="flex grow flex-col gap-2 items-start">
                     <li>
                       <Link
                         href="/dashboard"
@@ -70,7 +70,9 @@ export function MobileToggle() {
                         Dashboard
                       </Link>
                     </li>
-                    <UserButton afterSignOutUrl="/" />
+                    <li className="ml-4">
+                      <UserButton afterSignOutUrl="/" />
+                    </li>
                   </div>
                 ) : (
                   <>

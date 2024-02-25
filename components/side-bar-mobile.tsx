@@ -35,9 +35,9 @@ const SidebarMobile = () => {
       </SheetTrigger>
       <SheetContent side={"left"} className="p-0 border-0 bg-primary">
         <SheetHeader className="bg-[#111827] py-2">
-          <div className="flex relative w-full text-center h-16">
-            <Image className="p-4" src={logo} alt="logo" fill />
-          </div>
+          <SheetTitle className="w-full flex justify-center items-center pt-8">
+            <Image src={logo} alt="logo" width={160} height={40} />
+          </SheetTitle>
         </SheetHeader>
         <aside className="w-full min-h-screen overflow-y-auto  px-2 py-4 bg-gray-900 ">
           <div className="flex flex-col mt-8 gap-2">
