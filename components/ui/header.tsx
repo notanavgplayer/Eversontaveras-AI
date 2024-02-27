@@ -63,7 +63,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/signin"
-                      className="btn-sm rounded-full text-black hover:text-white hover:bg-black flex items-center transition duration-500 ease-in-out border-2 border-zinc-700"
+                      className="btn-sm rounded-xl text-black hover:text-white hover:bg-black flex items-center transition duration-500 ease-in-out border-2 border-zinc-700"
                     >
                       Sign in
                     </Link>
@@ -71,7 +71,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/signup"
-                      className="btn-sm rounded-full  text-white bg-blue-600 hover:bg-blue-800"
+                      className="btn-sm rounded-xl  text-white bg-blue-600 hover:bg-blue-800"
                     >
                       Sign up
                     </Link>

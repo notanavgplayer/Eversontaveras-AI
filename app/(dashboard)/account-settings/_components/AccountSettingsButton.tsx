@@ -46,7 +46,7 @@ const AccountSettingsButton = (props: AccountSettingsButtonProps) => {
 
   return (
     <Button
-      variant={"secondary"}
+      variant={"primary"}
       onClick={
         props.label === "Manage subscription"
           ? onClickHandlerForSubscriber
