@@ -62,13 +62,13 @@ export default function Hero() {
           </div>
 
             <h1
-              className="h1 mb-4 font-extrabold tracking-tighter text-black text-6xl"
+              className="h1 mb-4 font-extrabold tracking-tighter text-black text-4xl lg:text-6xl"
               data-aos="fade-up"
             >
               Explore the Power of
             </h1>
             <h1
-              className="h1 mb-4 font-extrabold tracking-tighter text-black text-6xl"
+              className="h1 mb-4 font-extrabold tracking-tighter text-black text-4xl lg:text-6xl"
               data-aos="fade-up"
             >
               <span className="text-blue-600">Artifical Intelligence</span>{" "}
