@@ -16,7 +16,7 @@ const ButtonPro = ({ isSubscribed }: PricingButtonProps) => {
     <button
       disabled={isSubscribed}
       onClick={userId ? () => onOpen() : () => router.push("/signin")}
-      className="text-white bg-indigo-500 w-full hover:bg-indigo-600 mt-8 block text-sm font-semibold leading-4 text-center rounded-lg shadow-md px-6 py-4"
+      className="text-white bg-blue-600 w-full hover:bg-blue-700 mt-8 block text-sm font-semibold leading-4 text-center rounded-lg shadow-md px-6 py-4"
     >
       {isSubscribed ? "Currently on pro" : " Upgrade to pro"}
     </button>

@@ -83,7 +83,7 @@ const ProModal = () => {
         <div className="mt-2 flex justify-center">
           <Button
             onClick={proButtonHandler}
-            className="bg-indigo-600  focus:border-0  focus-within:border-0 focus:outline-none  text-white px-6 py-3 rounded-[.4rem] hover:bg-indigo-500"
+            className="bg-blue-600  focus:border-0  focus-within:border-0 focus:outline-none  text-white px-6 py-3 rounded-[.4rem] hover:bg-blue-500"
           >
             Upgrade pro
             {isLoading && (

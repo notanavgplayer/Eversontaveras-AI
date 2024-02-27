@@ -3,6 +3,9 @@
  * @see https://v0.dev/t/12Ft5O0ppWo
  */
 
+import G2 from "@/public/images/G2.png";
+import Image from "next/image";
+
 
 export function Hero2() {
   return (
@@ -12,44 +15,27 @@ export function Hero2() {
       <div className="lg:flex justify-between items-center md:grid grid-cols-1">
         <div className="text-center">
           <h2 className="text-xl lg:text-2xl font-bold text-black">7,000,000+</h2>
-          <p className="text-sm lg:text-lg text-gray-500 mt-2">happy copywriters, marketers & entrepreneurs</p>
+          <p className="text-sm lg:text-lg text-gray-700 mt-2">happy copywriters, marketers & entrepreneurs</p>
         </div>
         <div className="text-center">
           <h2 className="text-xl lg:text-2xl font-bold text-black">4.9/5</h2>
-          <p className="text-sm lg:text-lg text-gray-500 mt-2">satisfaction rating from 1000+ reviews on G2</p>
+          <p className="text-sm lg:text-lg text-gray-700 mt-2">satisfaction rating from 1000+ reviews on G2</p>
         </div>
         <div className="text-center">
           <h2 className="text-xl lg:text-2xl font-bold text-black">25,000,000+ hours</h2>
-          <p className="text-sm lg:text-lg text-gray-500  mt-2">and $500 million+ saved in content writing so far</p>
+          <p className="text-sm lg:text-lg text-gray-700  mt-2">and $500 million+ saved in content writing so far</p>
         </div>
       </div>
       <div className="flex justify-center mt-4">
-        <Globe2Icon className="text-blue-600 h-6 w-6" />
-        <p className="text-sm lg:text-lg text-gray-600 ml-2">4.9/5</p>
+      <Image
+                  className="text-blue-600 h-7 w-10"
+                  src={G2}
+                  width={540}
+                  height={405}
+                  alt="Features 02"
+                />
+        <p className="text-sm lg:text-lg text-gray-600 ml-2 mr-5">4.9/5</p>
       </div>
     </section>
-  )
-}
-
-
-function Globe2Icon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
-      <path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17" />
-      <path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
-      <circle cx="12" cy="12" r="10" />
-    </svg>
   )
 }

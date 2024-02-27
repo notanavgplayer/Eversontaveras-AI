@@ -54,7 +54,7 @@ export default function Zigzag() {
                 data-aos="fade-left"
               >
                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                  <div className="font-architects-daughter text-xl text-indigo-600 mb-2">
+                  <div className="font-architects-daughter text-xl text-blue-600 mb-2">
                     Seamless Integration
                   </div>
                   <h3 className="h3 mb-3 text-black">
@@ -131,7 +131,7 @@ export default function Zigzag() {
                 data-aos="fade-right"
               >
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <div className="font-architects-daughter text-xl text-indigo-600 mb-2">
+                  <div className="font-architects-daughter text-xl text-blue-600 mb-2">
                     More speed. Accurate results.
                   </div>
                   <h3 className="h3 mb-3 text-black">

@@ -34,7 +34,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/pricing"
-                  className="btn-sm rounded-full text-black hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                  className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
                 >
                   Pricing
                 </Link>
@@ -42,7 +42,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/blogs"
-                  className="btn-sm rounded-full text-black hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                  className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
                 >
                   Blogs
                 </Link>
@@ -50,7 +50,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/contact"
-                  className="btn-sm rounded-full text-black hover:text-white hover:bg-gray-700  flex items-center transition duration-500 ease-in-out"
+                  className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
                 >
                   Contact
                 </Link>
