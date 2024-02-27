@@ -10,10 +10,24 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20 border-t border-gray-800">
 
+        <div>
+        <div className='relative isolate'>
+          <div
+            aria-hidden='true'
+            className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[40rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-40 sm:left-[calc(80%-30rem)] sm:w-[72.1875rem]'
+            />
+          </div>
+
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4 tracking-tight">#GeniuswriterLove: Client Testimonials Sharing the ❤️ for AI Content Creation</h2>
-            <p className="text-xl text-gray-400">The journey from blank page to brilliant content can be daunting. But with Geniuswriter AI by your side, it's an exciting adventure! Our clients share their unique stories, highlighting the challenges they faced and the incredible content they were able to create with our help.</p>
+            <h2 className="h2 mb-4 tracking-tight text-black">#IntellicaNetLove: Client Testimonials Sharing the ❤️ for AI Content Creation</h2>
+            <p className="text-[17px] lg:text-lg text-zinc-500">The journey from blank page to brilliant content can be daunting. But with IntellicaNet AI by your side, it's an exciting adventure! Our clients share their unique stories, highlighting the challenges they faced and the incredible content they were able to create with our help.</p>
           </div>
 
           {/* Testimonials */}
@@ -29,7 +43,7 @@ export default function Testimonials() {
                   </svg>
                 </div>
               </div>
-              <blockquote className="text-lg text-gray-400 grow">— Before Geniuswriter, writer's block was my nemesis. Now, the AI story generator sparks fresh ideas, and the text expander saves me tons of time on repetitive phrases. It's a game-changer for busy bloggers!</blockquote>
+              <blockquote className="text-lg text-gray-400 grow">— Before IntellicaNet, writer's block was my nemesis. Now, the AI story generator sparks fresh ideas, and the text expander saves me tons of time on repetitive phrases. It's a game-changer for busy bloggers!</blockquote>
               <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
                 <cite className="text-gray-200 not-italic">Sarah Johnson</cite> - <a className="text-indigo-600 transition duration-150 ease-in-out" > Lifestyle Blogger</a>
               </div>
@@ -45,7 +59,7 @@ export default function Testimonials() {
                   </svg>
                 </div>
               </div>
-              <blockquote className="text-lg text-gray-400 grow">— My social media engagement was drowning. Geniuswriter's image generation tool brought unique visuals to my posts, and text-to-speech created grabby audio clips. My audience loves it!</blockquote>
+              <blockquote className="text-lg text-gray-400 grow">— My social media engagement was drowning. IntellicaNet's image generation tool brought unique visuals to my posts, and text-to-speech created grabby audio clips. My audience loves it!</blockquote>
               <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
                 <cite className="text-gray-200 not-italic">Alex Rodriguez</cite> - <a className="text-indigo-600 transition duration-150 ease-in-out" >Social Media Influencer</a>
               </div>
@@ -61,7 +75,7 @@ export default function Testimonials() {
                   </svg>
                 </div>
               </div>
-              <blockquote className="text-lg text-gray-400 grow">— I wasn't sure how AI could help my writing, but Geniuswriter surprised me! It sparks creativity, saves time, and offers a variety of tools for any content need. Give it a try - you won't regret it</blockquote>
+              <blockquote className="text-lg text-gray-400 grow">— I wasn't sure how AI could help my writing, but IntellicaNet surprised me! It sparks creativity, saves time, and offers a variety of tools for any content need. Give it a try - you won't regret it</blockquote>
               <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
                 <cite className="text-gray-200 not-italic">David Lee</cite> - <a className="text-indigo-600 hover:text-gray-200 transition duration-150 ease-in-out"> Entrepreneur</a>
               </div>
@@ -70,6 +84,8 @@ export default function Testimonials() {
           </div>
 
         </div>
+      </div>
+      </div>
       </div>
     </section>
   )

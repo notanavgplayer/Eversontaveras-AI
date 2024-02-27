@@ -79,10 +79,10 @@ const PricingPlans = async () => {
           </div>
         </div>
 
-        {/* GeniusWriter Pro Plan */}
+        {/* intellicanet Pro Plan */}
         <div className="border border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col">
           <h3 className="text-xl font-bold leading-5 text-black">
-            GeniusWriter Pro
+            IntellicaNet Pro
           </h3>
           <p className="mt-4 text-slate-700 text-sm leading-6">
             The Professional Plan stands out as the premier choice for content

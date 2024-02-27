@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { Menu, MenuIcon } from "lucide-react";
-import logo from "@/public/images/logo.png";
+import logo from "@/public/images/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ export function MobileToggle() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu className="w-6 h-6 text-gray-200" />
+        <Menu className="w-6 h-6 text-black" />
       </SheetTrigger>
       <SheetContent side="left" className="bg-slate-800 border-0 px-4 py-12">
         <SheetHeader>

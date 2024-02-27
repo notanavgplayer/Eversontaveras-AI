@@ -15,7 +15,7 @@ import { sidebarRoutes } from "@/lib/sideRoutes";
 import SidebarItem from "./sidebar-item";
 import { route } from "@/types";
 import SpecialButton from "./special-button";
-import logo from "@/public/images/logo.png";
+import logo from "@/public/images/logo.svg";
 
 const SidebarMobile = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);

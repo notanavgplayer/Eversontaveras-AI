@@ -38,7 +38,7 @@ const ProModal = () => {
       <DialogContent className="bg-gray-50 px-4 py-8 text-gray-700 focus:border-0 focus:outline-none focus-visible:ouline-none shadow-2xl">
         <DialogHeader>
           <DialogTitle className="text-2xl text-indigo-800 font-bold mb-2 text-center">
-            Become a Pro GeniusWriter
+            Upgrade to IntellicaNet Pro
           </DialogTitle>
           <DialogDescription className="text-sm p-2 text-gray-700 text-justify">
             <Tabs defaultValue="month" className="">

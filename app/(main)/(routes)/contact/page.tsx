@@ -32,7 +32,7 @@ function ContactPage() {
             </h2>
             <div className="flex items-center mb-3">
               <Mail size={20} color="#4a5568" className="mr-2" />
-              <p className="text-base text-gray-100">Email: info@geniuswriter.ai  </p>
+              <p className="text-base text-gray-100">Email: info@intellicanet.com  </p>
             </div>
             <div className="flex items-center mb-3">
               <Phone size={20} color="#4a5568" className="mr-2" />

@@ -16,7 +16,7 @@ Unleash your creativity with our platform's innovative tools. Start your free tr
     mostPopular: false,
   },
   {
-    title: "GeniusWriter Pro",
+    title: "IntellicaNet Pro",
     price: `$30`,
     currency: "USD",
     frequency: "/month",

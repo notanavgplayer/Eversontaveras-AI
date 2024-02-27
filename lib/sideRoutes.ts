@@ -25,24 +25,9 @@ export const sidebarRoutes = [
     path: "/article",
   },
   {
-    label: "Story Generator",
-    Icon: Book,
-    path: "/story",
-  },
-  {
-    label: "Text Expander",
-    Icon: Brain,
-    path: "/text-expander",
-  },
-  {
     label: "Image generator",
     Icon: ImageIcon,
     path: "/image",
-  },
-  {
-    label: "Text to Speech",
-    Icon: FileVolume,
-    path: "/text-to-speech",
   },
   {
     label: "Account settings",

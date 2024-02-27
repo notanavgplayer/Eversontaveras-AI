@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import logo from "@/public/images/logo.png";
+import logo from "@/public/images/logo.svg";
 import Image from 'next/image';
 
 
 export default function Footer() {
   return (
     <footer>
-      <div className="py-12 md:py-6">
+      <div className="py-12 md:py-6 border-t border-gray-800 mt-10 lg:w-3/4 mx-auto">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Top area: Blocks */}
           <div className="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
@@ -24,7 +24,7 @@ export default function Footer() {
                   <Image src={logo} alt="logo" width={250} height={40} />
                 </Link>
               </div>
-              <div className="text-gray-400">
+              <div className="text-zinc-600">
                 Empowering global success through innovative AI solutions.
                 Enhancing productivity, fostering creativity, simplifying tasks.
                 Join the revolution!
@@ -35,12 +35,12 @@ export default function Footer() {
             <div className="md:col-span-8 lg:col-span-7 grid sm:grid-cols-3 gap-8">
               {/* 2nd block */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Products</h6>
+                <h6 className="text-black font-medium mb-1">Products</h6>
                 <ul>
                   <li className="mb-1">
                     <Link
                       href="/chat"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Chat Conversations
                     </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/article"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Article Summarizer
                     </Link>
@@ -56,25 +56,9 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/image"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Image Generation
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/text-to-speech"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Text to Speech
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/text-expander"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Text Expander
                     </Link>
                   </li>
                 </ul>
@@ -82,7 +66,7 @@ export default function Footer() {
 
               {/* 3rd block */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Company</h6>
+                <h6 className="text-black font-medium mb-1">Company</h6>
                 <ul>
                   {/* <li className="mb-1">
                     <Link
@@ -96,7 +80,7 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/pricing"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Pricing
                     </Link>
@@ -104,7 +88,7 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/blogs"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Blogs
                     </Link>
@@ -115,12 +99,12 @@ export default function Footer() {
 
               {/* 4th block */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Support</h6>
+                <h6 className="text-black font-medium mb-1">Support</h6>
                 <ul>
                   <li className="mb-1">
                     <Link
                       href="/contact"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Contact us
                     </Link>
@@ -128,15 +112,15 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
-                      Email: info@geniuswriter.ai
+                      Email: info@intellicanet.com
                     </Link>
                   </li>
                   <li>
                   <Link
                       href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Phone: +123-456-789
                     </Link>
@@ -213,8 +197,8 @@ export default function Footer() {
               </li>
             </ul> */}
 
-            <div className="text-gray-400 text-sm mr-4 text-center">
-              &copy; GeniusWriter - All rights reserved.
+            <div className="text-zinc-600 text-sm mr-4 text-center">
+              &copy; IntellicaNet - All rights reserved.
             </div>
           </div>
         </div>

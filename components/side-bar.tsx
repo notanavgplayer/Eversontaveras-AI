@@ -1,6 +1,6 @@
 "use client";
 import { sidebarRoutes } from "@/lib/sideRoutes";
-import logo from "@/public/images/logo.png";
+import logo from "@/public/images/logo.svg";
 import { route } from "@/types";
 import AOS from "aos";
 import Image from "next/image";

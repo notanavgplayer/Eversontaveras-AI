@@ -33,27 +33,6 @@ const tools = [
     path: "/article",
   },
   {
-    name: "Story Generator",
-    description: "Create captivating stories with AI assistance.",
-    icon: StoryGeneratorIcon,
-    color: "text-green-800",
-    path: "/story",
-  },
-  {
-    name: "Text Expander",
-    description: "Expand your text efficiently with AI.",
-    icon: TextExpanderIcon,
-    color: "text-teal-800",
-    path: "/text-expander",
-  },
-  {
-    name: "Text to Speech",
-    description: "Convert text to speech effortlessly.",
-    icon: TextToSpeechIcon,
-    color: "text-orange-800",
-    path: "/text-to-speech",
-  },
-  {
     name: "Image Generation",
     description: "Generate images with AI assistance.",
     icon: ImageGenerationIcon,

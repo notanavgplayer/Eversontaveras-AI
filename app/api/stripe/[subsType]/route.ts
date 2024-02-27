@@ -52,8 +52,8 @@ export async function GET(
           price_data: {
             currency: "USD",
             product_data: {
-              name: "Geniuswriter",
-              description: "Access Unlimited AI Generations On Geniuswriter",
+              name: "IntellicaNet",
+              description: "Access Unlimited AI Generations On IntellicaNet",
             },
             unit_amount: params.subsType === "month" ? 1000 : 10000,
             recurring: {
