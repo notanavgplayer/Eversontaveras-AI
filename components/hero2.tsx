@@ -28,13 +28,13 @@ export function Hero2() {
       </div>
       <div className="flex justify-center mt-4">
       <Image
-                  className="text-blue-600 h-7 w-10"
+                  className="h-7 w-10"
                   src={G2}
                   width={540}
                   height={405}
                   alt="Features 02"
                 />
-        <p className="text-sm lg:text-lg text-gray-600 ml-2 mr-5">4.9/5</p>
+        <p className="text-sm lg:text-lg font-semibold text-gray-600 ml-2 mr-5">4.9/5</p>
       </div>
     </section>
   )
