@@ -24,10 +24,8 @@ export default function Footer() {
                   <Image src={logo} alt="logo" width={250} height={40} />
                 </Link>
               </div>
-              <div className="text-zinc-600">
-                Empowering global success through innovative AI solutions.
-                Enhancing productivity, fostering creativity, simplifying tasks.
-                Join the revolution!
+              <div className="text-zinc-600 font-semibold">
+              Supercharge your efficiency with Intellicanet AI's suite of intelligent tools: chatbots, article summarizers, and image generators. Explore our solutions and unlock a world of possibilities.
               </div>
             </div>
 

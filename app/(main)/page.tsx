@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "IntellicaNet",
+  title: "IntellicaNet - AI Powered Tools!",
   description: "Page description",
 };
 

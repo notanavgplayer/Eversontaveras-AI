@@ -8,11 +8,11 @@ function page() {
   return (
     <main>
       <Header />
-      <h1 className="text-4xl max-w-6xl mx-auto font-bold text-left mt-24">
+      <h1 className="text-4xl max-w-6xl mx-auto font-bold text-left mt-48 text-black">
         Our latest blogs
       </h1>
-      <div className="min-h-screen mt-4 flex max-w-6xl mx-auto  ">
-        <div className="flex flex-wrap">
+      <div className="min-h-screen mt-4 flex max-w-6xl mx-auto">
+        <div className="flex flex-wrap text-black text-lg font-semibold">
           {blogPosts.map((post, index) => {
             return (
               <BlogCard

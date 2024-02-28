@@ -14,7 +14,7 @@ const PricingPlans = async () => {
         className="grid lg:grid-cols-2 gap-12 lg:gap-8 py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6"
       >
         {/* Free Trial Plan */}
-        <div className="border border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col">
+        <div className="border border-black p-8 shadow-lg bg-white rounded-2xl relative flex flex-col">
           <h3 className="text-xl font-bold leading-5 text-black">Free Trial</h3>
           <p className="mt-4 text-slate-700 text-sm leading-6">
             Unleash your creativity with our platform's innovative tools. Start
@@ -31,7 +31,7 @@ const PricingPlans = async () => {
             <ul className="text-black mt-6 space-y-4 flex-1">
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
@@ -46,7 +46,7 @@ const PricingPlans = async () => {
               </li>
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
@@ -61,7 +61,7 @@ const PricingPlans = async () => {
               </li>
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
@@ -80,7 +80,7 @@ const PricingPlans = async () => {
         </div>
 
         {/* intellicanet Pro Plan */}
-        <div className="border border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col">
+        <div className="border border-black p-8 shadow-lg bg-white rounded-2xl relative flex flex-col">
           <h3 className="text-xl font-bold leading-5 text-black">
             IntellicaNet Pro
           </h3>
@@ -99,7 +99,7 @@ const PricingPlans = async () => {
             <ul className="text-black mt-6 space-y-4 flex-1">
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
@@ -114,7 +114,7 @@ const PricingPlans = async () => {
               </li>
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
@@ -129,7 +129,7 @@ const PricingPlans = async () => {
               </li>
               <li className="text-sm text-slate-700 leading-6 flex">
                 <svg
-                  className="h-5 w-5 text-indigo-500 shrink-0"
+                  className="h-5 w-5 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth="2"

@@ -31,20 +31,20 @@ export default function Header() {
           <nav className="hidden lg:flex md:grow">
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap gap-1 tracking-wide items-center">
+            <li>
+                <Link
+                  href="/"
+                  className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
+                >
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/pricing"
                   className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
                 >
                   Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blogs"
-                  className="btn-sm rounded-xl text-black hover:text-white hover:bg-black  flex items-center transition duration-500 ease-in-out"
-                >
-                  Blogs
                 </Link>
               </li>
               <li>
