@@ -7,10 +7,13 @@ import AOS from "aos";
 import {
   Clipboard as ArticleSummarizerIcon,
   MessageSquare as ChatIcon,
+  FileText,
   Image as ImageGenerationIcon,
   LayoutDashboard,
+  Speech,
   BookOpen as StoryGeneratorIcon,
   FileText as TextExpanderIcon,
+  TextIcon,
   Mic as TextToSpeechIcon,
 } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
@@ -28,7 +31,7 @@ const tools = [
   {
     name: "Article Summarizer",
     description: "Extract and summarize articles effortlessly.",
-    icon: ArticleSummarizerIcon,
+    icon: FileText,
     color: "text-purple-800",
     path: "/article",
   },
@@ -38,6 +41,13 @@ const tools = [
     icon: ImageGenerationIcon,
     color: "text-violet-800",
     path: "/image",
+  },
+  {
+    name: "Text to Speech",
+    description: "Generate images with AI assistance.",
+    icon: Speech,
+    color: "text-violet-800",
+    path: "/text-to-speech",
   },
 ];
 

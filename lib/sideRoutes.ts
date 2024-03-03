@@ -7,6 +7,7 @@ import {
   MessageSquare,
   Settings2,
   FileVolume,
+  Speech,
 } from "lucide-react";
 export const sidebarRoutes = [
   {
@@ -28,6 +29,11 @@ export const sidebarRoutes = [
     label: "Image generator",
     Icon: ImageIcon,
     path: "/image",
+  },
+  {
+    label: "Text To Speech",
+    Icon: Speech,
+    path: "/text-to-speech",
   },
   {
     label: "Account settings",

@@ -1,8 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 import logo from "@/public/images/logo.svg";
-import Image from 'next/image';
-
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -21,11 +20,17 @@ export default function Footer() {
                   className="flex justify-start mb-4 items-center transition duration-150 ease-in-out"
                   aria-label="Logo"
                 >
-                  <h1 className="text-blue-600 text-4xl font-extrabold">IntellicaNet AI<span className="font-semibold text-black">.</span></h1>
+                  <h1 className="text-blue-600 text-3xl font-extrabold">
+                    IntellicaNet AI
+                    <span className="font-semibold text-black">.</span>
+                  </h1>
                 </Link>
               </div>
-              <div className="text-zinc-600 font-semibold">
-              Supercharge your efficiency with Intellicanet AI's suite of intelligent tools: chatbots, article summarizers, and image generators. Explore our solutions and unlock a world of possibilities.
+              <div className="text-zinc-600 text-[15px]">
+                Supercharge your efficiency with Intellicanet AI's suite of
+                intelligent tools: chatbots, article summarizers, and image
+                generators. Explore our solutions and unlock a world of
+                possibilities.
               </div>
             </div>
 
@@ -59,6 +64,14 @@ export default function Footer() {
                       Image Generation
                     </Link>
                   </li>
+                  <li className="mb-1">
+                    <Link
+                      href="/text-to-speech"
+                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Text To Speech
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
@@ -85,13 +98,12 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/blogs"
+                      href="/contact"
                       className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
-                      Blogs
+                      Contact Us
                     </Link>
                   </li>
-
                 </ul>
               </div>
 
@@ -101,14 +113,6 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/contact"
-                      className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Contact us
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
                       href="/"
                       className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
@@ -116,13 +120,13 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                  <Link
+                    <Link
                       href="/"
                       className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Phone: +123-456-789
                     </Link>
-                    </li>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -195,11 +199,11 @@ export default function Footer() {
               </li>
             </ul> */}
 
-            <div className="text-zinc-600 text-sm mr-4 text-center">
-              &copy; IntellicaNet - All rights reserved.
-            </div>
+          <div className="text-zinc-600 text-sm mr-4 text-center">
+            &copy; IntellicaNet - All rights reserved.
           </div>
         </div>
+      </div>
     </footer>
   );
 }

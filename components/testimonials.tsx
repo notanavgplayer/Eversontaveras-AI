@@ -11,7 +11,6 @@ export default function Testimonials() {
         <div className="py-12 md:py-20 border-t border-gray-800">
           <div>
             <div className="relative isolate">
-
               {/* Section header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h2 className="h2 mb-4 tracking-tight text-black">

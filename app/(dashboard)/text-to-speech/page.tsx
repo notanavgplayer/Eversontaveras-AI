@@ -30,7 +30,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AOS from "aos";
 import axios from "axios";
-import { Check, ChevronsUpDown, Image as ImageIcon } from "lucide-react";
+import { Check, ChevronsUpDown, Image as ImageIcon, Speech } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -86,7 +86,7 @@ const page = () => {
       <TopBar
         iconColor="text-blue-800"
         label="Text to speech"
-        Icon={ImageIcon}
+        Icon={Speech}
       />
       <main
         data-aos="fade-up"
