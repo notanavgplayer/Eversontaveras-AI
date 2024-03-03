@@ -21,7 +21,7 @@ export default function Footer() {
                   className="flex justify-start mb-4 items-center transition duration-150 ease-in-out"
                   aria-label="Logo"
                 >
-                  <Image src={logo} alt="logo" width={250} height={40} />
+                  <h1 className="text-blue-600 text-4xl font-extrabold">IntellicaNet AI<span className="font-semibold text-black">.</span></h1>
                 </Link>
               </div>
               <div className="text-zinc-600 font-semibold">

@@ -37,7 +37,7 @@ const ProModal = () => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="bg-gray-50 px-4 py-8 text-gray-700 focus:border-0 focus:outline-none focus-visible:ouline-none shadow-2xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-indigo-800 font-bold mb-2 text-center">
+          <DialogTitle className="text-2xl text-blue-600 font-bold mb-2 text-center">
             Upgrade to IntellicaNet Pro
           </DialogTitle>
           <DialogDescription className="text-sm p-2 text-gray-700 text-justify">
@@ -61,7 +61,7 @@ const ProModal = () => {
                   value="year"
                 >
                   Yearly $300
-                  <span className="absolute top-[-16px] right-[-6px] bg-indigo-700 shadow-2xl rounded-full p-2 text-white rotate-[-16deg] ">
+                  <span className="absolute top-[-16px] right-[-6px] bg-blue-600 shadow-2xl rounded-full p-2 text-white rotate-[-16deg] ">
                     {" "}
                     -15%{" "}
                   </span>

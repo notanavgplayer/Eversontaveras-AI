@@ -18,9 +18,7 @@ export default function Header() {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link href="/" className="block" aria-label="logo">
-              <Image  src={logo} alt="logo" width={216} height={40} />
-            </Link>
+            <h1 className="text-blue-600 text-3xl font-extrabold ">IntellicaNet AI<span className="font-semibold text-black">.</span></h1>
           </div>
 
           <div className="block lg:hidden">
