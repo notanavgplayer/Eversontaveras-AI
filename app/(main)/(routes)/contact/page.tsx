@@ -36,16 +36,16 @@ function ContactPage() {
                 Email: info@intellicanet.com{" "}
               </p>
             </div>
-            <div className="flex items-center mb-3">
+            {/* <div className="flex items-center mb-3">
               <Phone size={20} color="#4a5568" className="mr-2" />
               <p className="text-base text-black">Phone: +123-456-7890</p>
-            </div>
-            <div className="flex items-center">
+            </div> */}
+            {/* <div className="flex items-center">
               <Pin size={20} color="#4a5568" className="mr-2" />
               <p className="text-base text-black">
                 Address: 123 Main Street, City, Country
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

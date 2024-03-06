@@ -44,7 +44,7 @@ const tools = [
   },
   {
     name: "Text to Speech",
-    description: "Generate images with AI assistance.",
+    description: "Convert text to speech with AI.",
     icon: Speech,
     color: "text-violet-800",
     path: "/text-to-speech",

@@ -119,14 +119,14 @@ export default function Footer() {
                       Email: info@intellicanet.com
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="/"
                       className="text-zinc-600 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Phone: +123-456-789
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
