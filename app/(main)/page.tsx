@@ -15,7 +15,6 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <Hero2 />
       <Features />
       <Zigzag />
       <Testimonials />
